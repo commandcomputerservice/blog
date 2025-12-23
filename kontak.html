@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak Kami | Command Computer Service</title>
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS Tambahan untuk Halaman Kontak - Meniru tema dari file artikel */
+        
+        /* Tombol Navigasi/Link Utama (Asumsi warna Biru/Hijau) */
+        .main-nav .nav-button {
+            /* Warna tombol utama biasanya brand color (misalnya Biru/Hijau) */
+        }
+        
+        /* Layout Kontak */
+        .contact-info-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .contact-details, .contact-form-wrapper {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        /* Judul Kontak - Menggunakan warna gelap/biru yang konsisten dengan H2 di artikel */
+        .contact-details h2, .contact-form-wrapper h2 {
+            color: #1E40FF; 
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.6em;
+        }
+        
+        /* Peta */
+        .map-container {
+            width: 100%;
+            height: 400px;
+            margin-bottom: 40px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Tombol Sosial Media */
+        .social-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .social-button {
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #ffffff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+        .social-button.whatsapp { background-color: #25D366; } /* Hijau WhatsApp */
+        .social-button.facebook { background-color: #1877F2; } /* Biru Facebook */
+        .social-button.instagram { background-color: #C13584; } /* Ungu/Pink Instagram */
+        .social-button:hover {
+            opacity: 0.9;
+        }
+
+        /* Styling Formulir */
+        .contact-form label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .contact-form textarea {
+            min-height: 150px;
+        }
+        .contact-form button {
+            background-color: #007bff; /* Warna tombol kirim */
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+        .contact-form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <a class="skip-navigation" href="#main" tabindex="0">Lompati ke konten utama</a>
+
+    <header class="main-header">
+        <div class="centered-top-container">
+            <div class="header-content">
+                <div class="logo-title">
+                     <div class="Logo"> 
+                        <img src="IT.jpg" width="70px" height="50px">
+                            
+                        <h1>Command Computer Service</h1>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="main-nav">
+                <ul class="tabs">
+                    <li><a href="index.html" class="nav-button">Beranda</a></li>
+                    <li><a href="layanan.html" class="nav-button">Layanan</a></li>
+                    <li><a href="tips-trik.html" class="nav-button">Tips & Trik</a></li>
+                    <li><a href="kontak.html" class="nav-button">Kontak</a></li>
+                    <li><a href="sitemaps.html" class="nav-button new-item">Sitemaps</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page_body">
+        <div class="centered-container article-layout">
+
+            <main class="main-content article-content-wrapper" id="main" role="main" tabindex="-1">
+                <article class="single-post-container">
+
+                    <h1 class="post-header-title">Hubungi Kami</h1>
+
+                    <div class="article-body">
+                        <p>Kami siap membantu semua kebutuhan perbaikan dan konsultasi komputer Anda. Silakan hubungi kami melalui detail kontak di bawah atau kirimkan pesan langsung melalui formulir.</p>
+
+                        <div class="map-container">
+                            <iframe 
+                                src="https://maps.google.com/maps?q=Monas&z=15&output=embed" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Lokasi Kantor Command Computer Service (Placeholder Monas)">
+                            </iframe>
+                        </div>
+
+                        <div class="contact-info-section">
+                            
+                            <div class="contact-details">
+                                <h2>Informasi Kontak</h2>
+                                <p><strong>Alamat:</strong> Jl. Terusan Kapten Halim , Gg.Benteng , Gg.Musik , Desa Lebak Anyar</p>
+                                <p><strong>Telepon:</strong> <a href="tel:+6282122321195</a></p>
+                                <p><strong>Email:</strong> <a href="mailto:akungawe092024@gmail.com">support@commandservice.com</a></p>
+                                <p><strong>Jam Kerja:</strong> Senin - Jumat, 08:00 - 17:00 WIB</p>
+                                
+                                <h2 style="margin-top: 30px;">Media Sosial</h2>
+                                <div class="social-buttons">
+                                    <a href="https://wa.me/6282122321195" target="_blank" class="social-button whatsapp">WhatsApp</a>
+                                    <a href="https://facebook.com/rezamalikalhakim" target="_blank" class="social-button facebook">Facebook</a>
+                                    <a href="https://instagram.com/_reza1996ma_" target="_blank" class="social-button instagram">Instagram</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-form-wrapper">
+                                <h2>Kirim Pesan Langsung</h2>
+                                <form action="submit_contact.php" method="POST" class="contact-form">
+                                    <label for="name">Nama Lengkap:</label>
+                                    <input type="text" id="name" name="name" required>
+
+                                    <label for="email">Email:</label>
+                                    <input type="email" id="email" name="email" required>
+
+                                    <label for="subject">Subjek:</label>
+                                    <input type="text" id="subject" name="subject" required>
+
+                                    <label for="message">Pesan Anda:</label>
+                                    <textarea id="message" name="message" required></textarea>
+
+                                    <button type="submit">Kirim Pesan</button>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+
+            </main>
+
+            <aside class='sidebar-container' role='complementary'>
+                <div class='widget profile-widget'>
+                    <h3 class='widget-title'>👤 Layanan Cepat</h3>
+                    <p>Butuh perbaikan mendesak? Hubungi kami langsung via WhatsApp untuk respons tercepat!</p>
+                </div>
+                
+                <div class='widget label-widget'>
+                    <h3 class='widget-title'>🕰️ Jam Operasional</h3>
+                    <p>Senin - Jumat: 08:00 - 17:00</p>
+                    <p>Sabtu: 08:00 - 12:00 (Sesuai Janji)</p>
+                </div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="centered-container">
+            <p class="attribution">
+                Hak Cipta &copy; 2025 Command Computer Service
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

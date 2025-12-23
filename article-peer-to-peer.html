@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Judul Postingan Anda | Command Computer Service</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <a class="skip-navigation" href="#main" tabindex="0">Lompati ke konten utama</a>
+
+    <header class="main-header">
+        <div class="centered-top-container">
+            <div class="header-content">
+                <div class="logo-title">
+     
+                     <div class="Logo"> <img src="IT.jpg" width="70px" height="50px"
+                    
+                   &nbsp;&nbsp;&nbsp; ><h1>Command Computer Service</h1>
+                    </div>
+
+                </div>
+            </div>
+            
+ <nav class="main-nav">
+                <ul class="tabs">
+                    <li><a href="index.html" class="nav-button">Beranda</a></li>
+                    <li><a href="#" class="nav-button">Layanan</a></li>
+                    <li><a href="#" class="nav-button">Tips & Trik</a></li>
+                    <li><a href="#" class="nav-button">Kontak</a></li>
+                    <li><a href="sitemaps.html" class="nav-button new-item">Sitemaps</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page_body">
+        <div class="centered-container article-layout">
+            
+            <main class="main-content article-content-wrapper" id="main" role="main" tabindex="-1">
+                <article class="single-post-container">
+                    
+                    <h1 class="post-header-title">Panduan Cepat Setting Jaringan Lokal Peer-to-Peer (P2P)</h1>
+                    
+                    <div class="post-meta-full">
+                        <span class="meta-author">By: <span class="author-name">Reza Malik Al Hakim</span></span>
+                        <span class="meta-separator">|</span>
+                        <span class="meta-date">Tanggal: 03 Desember 2025</span>
+                        <span class="meta-separator">|</span>
+                        <span class="meta-category">Kategori: <a href="#" class="toc-tag">Computer</a> <a href="#" class="toc-tag">Hardware</a></span>
+                    </div>
+
+                    <figure class="post-featured-image">
+                      <img src="LAN.jpg" alt="" width="350" height="250">
+                        <figcaption></figcaption>
+                    </figure>
+
+                    <div class="article-body">
+       
+                        <h2> Konsep Dasar Jaringan Peer-to-Peer</h2>
+                        <p>Jaringan lokal **peer-to-peer (P2P)** merupakan arsitektur jaringan yang paling sederhana. Ia memungkinkan beberapa komputer untuk saling terhubung dan berbagi sumber daya seperti file dan printer <span class="highlight">tanpa memerlukan server pusat</span> yang kompleks atau mahal. Pengaturan ini sangat ideal untuk lingkungan rumah, kos, atau kantor kecil (SOHO).</p>
+                        <ul>
+                            <li>**Keunggulan:** Setup yang cepat dan mudah, biaya implementasi yang sangat rendah, dan performa transfer data lokal yang efisien.</li>
+                            <li>**Kelemahan:** Manajemen keamanan dan *backup* harus dilakukan di setiap perangkat secara individu.</li>
+                        </ul>
+
+                        <br>
+                        <img src="https://via.placeholder.com/800x450?text=Diagram+Jaringan+P2P+Sederhana" alt="Diagram jaringan Peer-to-Peer dengan dua komputer terhubung langsung" class="article-image">
+                        <br>
+                        <br>
+                        <p class="caption">Jaringan P2P menghubungkan komputer secara setara tanpa hierarki.</p>
+
+
+                        <h2> Persiapan Peralatan yang Dibutuhkan</h2>
+
+                        <p>Untuk memulai instalasi jaringan P2P, pastikan Anda memiliki komponen-komponen berikut:</p>
+                        <ul>
+                            <li>**Komputer/Perangkat:** Minimal dua perangkat dengan kartu jaringan (NIC) yang berfungsi.</li>
+                            <li>**Media Koneksi:**
+                                <ul>
+                                    <li>**Kabel Ethernet:** Gunakan <span class="highlight">Kabel Crossover</span> jika menghubungkan **dua komputer secara langsung**. Gunakan Kabel Straight-Through jika melewati *Switch/Router*.</li>
+                                    <li>**Perangkat Nirkabel:** Memanfaatkan koneksi Wi-Fi yang sudah ada.</li>
+                                </ul>
+                            </li>
+                            <li>**Perangkat Penghubung (Opsional):** Switch atau Router jika lebih dari dua komputer.</li>
+                        </ul>
+
+                        <br>
+
+                        <h2>Panduan Konfigurasi Langkah Demi Langkah</h2>
+
+                        <h3>1. Konektivitas Fisik dan Alamat IP</h3>
+                        <p>Langkah pertama adalah memastikan perangkat dapat "saling melihat" di level jaringan.</p>
+                        <ul>
+                            <li>**Otomatis (DHCP):** Jika menggunakan router/switch, atur IP ke otomatis.</li>
+                            <li>**Manual (IP Statis):** Jika koneksi langsung dua PC, atur IP statis. Contoh: PC 1: <code>192.168.1.1</code>; PC 2: <code>192.168.1.2</code>. Subnet Mask harus sama: <code>255.255.255.0</code>.</li>
+                        </ul>
+
+                        <h3>2. Kelompok Kerja (*Workgroup*)</h3>
+                        <p>Semua PC Windows harus berada di **Kelompok Kerja** yang sama agar dapat saling berkomunikasi:</p>
+                        <ul>
+                            <li>Akses System Properties pada setiap komputer.</li>
+                            <li>Pastikan nama <span class="highlight">Workgroup</span> (misalnya, <code>WORKGROUP</code>) adalah sama persis di semua PC.</li>
+                        </ul>
+
+                        <h3>3. Mengaktifkan Berbagi (*Network Sharing*)</h3>
+                        <p>Izinkan perangkat untuk mengakses file dan printer satu sama lain:</p>
+                        <ul>
+                            <li>Aktifkan **Network Discovery** dan **File and Printer Sharing** di Pengaturan Jaringan.</li>
+                            <li>Untuk berbagi folder: Klik kanan folder, pilih **Properties** > **Sharing** > **Advanced Sharing**, dan atur **Permissions** (Izin).</li>
+                        </ul>
+
+                        <h3>4. Pengujian Koneksi</h3>
+                        <p>Uji koneksi dasar menggunakan Command Prompt:</p>
+                        <p>Ketik: <code>ping [Alamat IP Komputer Lain]</code> (contoh: <code>ping 192.168.1.2</code>). Jika mendapat balasan (*reply*), koneksi berhasil. Setelah itu, coba akses folder yang dibagikan melalui **File Explorer** > **Network**.</p>
+                        
+                        <br>
+
+                        <h2> Tips Keamanan Jaringan P2P</h2>
+                        <p>Keamanan sepenuhnya berada di tangan masing-masing pengguna. Terapkan langkah-langkah ini:</p>
+                        <ul>
+                            <li>Gunakan **Kata Sandi Kuat** untuk semua akun pengguna.</li>
+                            <li>Pastikan **Firewall** (Windows Defender/Firewall) selalu aktif.</li>
+                            <li>Saat berbagi, berikan Izin Berbagi (<span class="highlight">Sharing Permissions</span>) hanya sesuai kebutuhan (misalnya, hanya `Read-Only`).</li>
+                        </ul>
+        </div>
+    </div>                <section class="related-posts-section">
+                    <h2 class="section-title">Postingan Terkait Lainnya</h2>
+                    <div class="related-posts-list">
+                        <div class="post-card related-item">
+                            <h3 class="post-title">Perbaikan Error 000011b</h3>
+                            <a href="#" class="read-more-button">Lihat Artikel</a>
+                        </div>
+                        <div class="post-card related-item">
+                            <h3 class="post-title">Cara Mematikan Windows Update</h3>
+                            <a href="#" class="read-more-button">Lihat Artikel</a>
+                        </div>
+                    </div>
+                </section>
+                
+            </main>
+
+            <aside class='sidebar-container' role='complementary'>
+                <div class='widget profile-widget'>
+                    <h3 class='widget-title'>👤 Tentang Kami</h3>
+                    <p>Layanan perbaikan dan tips komputer terpercaya untuk semua kebutuhan troubleshooting Anda.</p>
+                </div>
+                
+                <div class='widget label-widget'>
+                    <h3 class='widget-title'>🏷️ Kategori Populer</h3>
+                    <div class="label-cloud">
+                        <a href="#" class="label-tag">Windows</a>
+                        <a href="#" class="label-tag">Hardware</a>
+                        <a href="#" class="label-tag">Software</a>
+                        <a href="#" class="label-tag">Jaringan</a>
+                    </div>
+                </div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="centered-container">
+            <p class="attribution">
+                Hak Cipta &copy; 2025 Command Computer Service. | Ditenagai oleh HTML, CSS, JS.
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
