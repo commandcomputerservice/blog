@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nama-domain-anda.com/sitemap.xml
+Sitemap: https://commandcomputerservice.github.io/blog/sitemap.xml
