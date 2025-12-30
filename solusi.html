@@ -3,142 +3,451 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Command Computer Service | Easy Troubleshooting</title>
+    <title>Solusi IT - Command Computer Service</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --primary-purple: #b366ff;
             --dark-bg: #0a0510;
             --glass: rgba(179, 102, 255, 0.15);
-            --glass-strong: rgba(179, 102, 255, 0.3);
+            --glass-strong: rgba(179, 102, 255, 0.4);
             --neon-shadow: 0 0 15px rgba(179, 102, 255, 0.5);
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             font-family: 'Rajdhani', sans-serif;
             background-color: var(--dark-bg);
             color: white;
             line-height: 1.6;
-            overflow-x: hidden;
         }
+
         .hero-section {
-            position: relative;
             min-height: 100vh;
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            background: linear-gradient(rgba(10, 5, 16, 0.8), rgba(10, 5, 16, 0.8)), 
-                        url('Banner.jpg') no-repeat center center;
+            background: linear-gradient(rgba(10, 5, 16, 0.9), rgba(10, 5, 16, 0.9)), url('Banner.jpg') no-repeat center center;
             background-size: cover;
             background-attachment: fixed;
-            padding: 40px 20px;
+            padding: 60px 20px;
         }
-        .brand-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 40px;
-            animation: fadeIn 1.2s ease-out;
-        }
-        .logo-box {
-            width: 100px; height: 100px;
-            border-radius: 50%;
-            border: 2px solid var(--primary-purple);
-            box-shadow: var(--neon-shadow);
-            margin-bottom: 20px;
-            overflow: hidden;
-            background: black;
-        }
-        .logo-box img { width: 100%; height: 100%; object-fit: cover; }
+
         .main-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(1.2rem, 4vw, 2.5rem);
+            font-size: 2.2rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            text-align: center;
+            letter-spacing: 4px;
             text-shadow: 0 0 10px var(--primary-purple);
-            margin-bottom: 10px;
-        }
-        .nav-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            width: 100%;
-            max-width: 600px;
-            z-index: 10;
-        }
-        .nav-item {
-            background: var(--glass);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            text-decoration: none;
-            color: white;
-            padding: 15px;
-            font-weight: 600;
             text-align: center;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin-bottom: 40px;
         }
-        .nav-item:hover {
-            background: var(--glass-strong);
+
+        /* Grid System */
+        .solusi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .article-card {
+            background: var(--glass);
+            border: 1px solid rgba(179, 102, 255, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: 0.3s ease;
+        }
+
+        .article-card:hover {
             border-color: var(--primary-purple);
-            transform: translateY(-3px);
+            box-shadow: var(--neon-shadow);
+            transform: translateY(-5px);
+        }
+
+        .article-card h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary-purple);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .summary-text {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 25px;
+        }
+
+        .btn-read-more {
+            padding: 12px 20px;
+            background: var(--glass-strong);
+            border: 1px solid var(--primary-purple);
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .btn-read-more:hover {
+            background: var(--primary-purple);
+            color: black;
             box-shadow: var(--neon-shadow);
         }
-        .dropdown { position: relative; }
-        .dropdown-content {
+
+        /* Modal System */
+        .modal {
             display: none;
-            position: absolute;
-            top: 100%; left: 0; width: 100%;
-            background: rgba(15, 5, 25, 0.95);
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: #11081a;
+            width: 100%;
+            max-width: 900px;
+            max-height: 85vh;
+            padding: 45px;
+            border-radius: 15px;
             border: 1px solid var(--primary-purple);
-            border-radius: 0 0 12px 12px;
-            z-index: 100;
+            position: relative;
+            overflow-y: auto;
+            box-shadow: 0 0 30px rgba(179, 102, 255, 0.3);
         }
-        .dropdown:hover .dropdown-content { display: block; }
-        .dropdown-content a {
-            color: #ccc; padding: 12px; display: block;
-            text-decoration: none; font-size: 0.85rem;
-            border-bottom: 1px solid rgba(179, 102, 255, 0.1);
+
+        .modal-content::-webkit-scrollbar { width: 8px; }
+        .modal-content::-webkit-scrollbar-thumb { background: var(--primary-purple); border-radius: 10px; }
+
+        .close-modal {
+            position: absolute;
+            top: 15px; right: 25px;
+            color: var(--primary-purple);
+            font-size: 2.5rem;
+            cursor: pointer;
         }
-        .dropdown-content a:hover { background: var(--primary-purple); color: black; }
-        .credit { margin-top: 50px; font-family: 'Orbitron', sans-serif; font-size: 0.8rem; opacity: 0.6; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-        @media (max-width: 600px) { .nav-grid { grid-template-columns: 1fr; } }
+
+        .modal-body h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary-purple);
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--glass-strong);
+            padding-bottom: 15px;
+        }
+
+        .modal-body p { margin-bottom: 18px; line-height: 1.8; color: #e0e0e0; text-align: justify; }
+        .modal-body strong { color: var(--primary-purple); }
+
+        .back-home {
+            margin-top: 50px;
+            padding: 12px 35px;
+            border: 1px solid var(--primary-purple);
+            color: white;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            transition: 0.3s;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .back-home:hover { background: var(--primary-purple); color: black; box-shadow: var(--neon-shadow); }
+
+        @media (max-width: 768px) {
+            .modal-content { padding: 25px; }
+            .main-title { font-size: 1.6rem; }
+        }
     </style>
 </head>
 <body>
+
     <section class="hero-section">
-        <header class="brand-container">
-            <div class="logo-box"><img src="Logo.png" alt="CMD Logo"></div>
-            <h1 class="main-title">Pusat Layanan Perbaikan & Troubleshooting</h1>
-            <h3><b>Command Computer Service</b></h3>
-            <p style="color: var(--primary-purple); letter-spacing: 3px;">Solusi Mudah Terpecahkan</p>
-        </header>
-        <nav class="nav-grid">
-            <a href="about.html" class="nav-item">TENTANG KAMI</a>
-            <a href="solusi.html" class="nav-item">SOLUSI KAMI</a>
-            <a href="kontak.html" class="nav-item">KONTAK</a>
-            <a href="https://maps.google.com" target="_blank" class="nav-item">GALERI</a>
-            <a href="kebijakan.html" class="nav-item" style="grid-column: span 2;">KEBIJAKAN & PRIVASI</a>
-            <div class="nav-item dropdown" style="grid-column: span 2;">
-                LAYANAN
-                <div class="dropdown-content">
-                    <a href="#">WEBSITE DEVELOPMENT</a>
-                    <a href="#">INSTAL ULANG WINDOWS</a>
-                    <a href="#">INSTAL SOFTWARE</a>
-                    <a href="#">UPGRADE RAM & SSD</a>
-                    <a href="#">REPAIR HARDWARE</a>
+        <h1 class="main-title">Solusi IT Terintegrasi</h1>
+
+        <div class="solusi-grid">
+            <div class="article-card">
+                <div>
+                    <h2>PERSIAPAN SEBELUM INSTAL DRIVER</h2>
+                    <p class="summary-text">
+                      <img src="L3210.jpg" width="100%" Height="100%">Setelah membeli produk Epson Printer & Scanner type L3210 Series  ini kalian bingung harus bagaimana langkah selanjutnya meskipun manual book / buku panduan tersedia di dalam kardus printer, banyak hal yang...</p>
                 </div>
+                <button class="btn-read-more" onclick="openModal('art1')">BACA SELENGKAPNYA</button>
             </div>
-        </nav>
-        <footer class="credit">© Command Computer Service | By Reza Malik Al Hakim</footer>
+
+            <div class="article-card">
+                <div>
+                    <h2>Cara Backup Data Komputer</h2>
+                    <p class="summary-text">
+                      <img src="Restore_recovery.jpg" width="100%" height="100%">System Restore adalah fitur dalam Microsoft Windows yang memungkinkan pengguna untuk mengembalikan kondisi komputer mereka (termasuk berkas sistem, aplikasi yang...</p>
+                </div>
+                <button class="btn-read-more" onclick="openModal('art2')">BACA SELENGKAPNYA</button>
+            </div>
+
+            <div class="article-card">
+                <div>
+                    <h2>Panduan Cepat Setting Jaringan Lokal Peer-to-Peer (P2P)</h2>
+                    <p class="summary-text">
+                      <img src="LAN.jpg" width="100%" height="100%">Jaringan lokal **peer-to-peer (P2P)** merupakan arsitektur jaringan yang paling sederhana. Ia memungkinkan beberapa komputer untuk saling terhubung dan berbagi sumber daya seperti file dan printer ...</p>
+                </div>
+                <button class="btn-read-more" onclick="openModal('art3')">BACA SELENGKAPNYA</button>
+            </div>
+            
+  <div class="article-card">
+                <div>
+                    <h2>Meningkatkan Performa Komputer Anda</h2>
+                    <p class="summary-text">
+                      <img src="performa.jpg" width="100%" height="100%">Seiring berjalannya waktu, komputer lama seringkali mengalami penurunan performa yang signifikan...</p>
+                </div>
+                <button class="btn-read-more" onclick="openModal('art4')">BACA SELENGKAPNYA</button>
+            </div>
+            
+  <div class="article-card">
+                <div>
+                    <h2>Cara Menonaktifkan System Windows Update</h2>
+                    <p class="summary-text">
+                      <img src="Restore_recovery.jpg" width="100%" height="100%">System Restore adalah fitur dalam Microsoft Windows yang memungkinkan pengguna untuk mengembalikan kondisi komputer mereka (termasuk berkas sistem, aplikasi yang...</p>
+                </div>
+                <button class="btn-read-more" onclick="openModal('art5')">BACA SELENGKAPNYA</button>
+            </div>
+            
+        </div>
+
+        <a href="index.html" class="back-home">KEMBALI KE BERANDA</a>
     </section>
+
+    <div id="modal-container" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div id="modal-body" class="modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        const content = {
+            art1: {
+                title: "A. PERSIAPAN SEBELUM INSTAL DRIVER",
+                text: `
+                    
+<p><ul>Setelah membeli produk Epson Printer & Scanner type L3210 Series  ini kalian bingung harus bagaimana langkah selanjutnya meskipun manual book / buku panduan tersedia di dalam kardus printer, banyak hal yang harus diperhatikan sebelum menggunakannya yaitu :
+
+<li>Pastikan tinta mesin cetak berwarna Epson L3210 tersebut sudah tersedia stok didalam paketan kardus
+<li>Isikan tinta kedalam tank tinta printer
+<li>Buka plastik pelindung
+<li>Cek kelengkapan paket biasanya include : kabel adapter /power DC , kabel usb printer 2.0 male to usb ,      cd driver , software / utility , serta buku panduan dan kartu garansi
+<li>Periksa  dan pastikan kaca scanner dan area paper tray bersih dan terhindar dari debu, maupun barang-barang yang rentan masuk kedalam area tersebut
+<li>Setelah clean and clear , colok kabel power pada printer dan hubungkan ke dalam listrik AC
+<li>Kemudian hubungkan kabel usb agar terhubung dari printer kedalam port usb komputer
+<li>Hidupkan tombol power , diamkan beberapa saat hingga semua lampu indicator diam dan tidak berkedip menandakan perangkat siap digunakan.
+
+
+Pelajari 4 fungsi tombol dan indicatornya.
+
+
+
+<li>Siapkan  CD drive apabila komputer kalian support dengan CD ROM ,
+
+<li>Download driver Epson L3210 for windows 10 64bit
+</li>
+</ul>
+
+<br>
+<ol> <b><H2>B. INSTAL DRIVER SOFTWARE / UTILITY</H2></b> </ol>
+
+Setelah perangkat printer & scanner siap digunakan, maka tidak lupa instal driver software yang akan digunakan untuk difungsikan sebagai operator perangkat tersebut yang mana driver adalah ibarat  sebagai darah yang dapat diserap oleh raga nya agar dibuktikan dengan aksi-aksi gerakan yang dihasilkan oleh otak dan berbagai macam aksi yang akan dilakukan.
+
+
+
+<ol><b>Langkah-langkah instalasi driver :</b></ol>
+<ol>
+<li>
+Download aplikasi yang ada pada browser maupun dari CD Driver</li>
+<li>
+Buka driver / software</li>
+</ol>
+<ol>Ikuti langkah-langkah berikut :
+Hubungkan kabel data usb 2.0 bawaan paket printer ke dalam port usb komputer, apabila masih tidak terdeteksi , coba cabut dan hubungkan ulang .</ol>
+
+
+
+<br>
+<ol><h2>C. SHARING PRINTER</h2></ol>
+
+<p>Dalam pembahasan ini mungkin kita fokus kan saja  terkait sharing printer melalui jaringan LAN.
+Apabila kalian belum memahami jaringan LAN maka pelajari terlebih dahulu terkait pemahaman jaringan LAN.
+
+Kemudian setelah komputer kalian terhubung dengan LAN dan printer , maka komputer tersebut akan disebut sebagai komputer server printer .
+</p>
+<p>Apabila komputer kalian Server Printer (dapat membuka sharing printer) :</p>
+<ol>
+
+<li>Klik Start
+<li>Ketik Control Panel
+<li>Pilih Hardware & Sounds
+<li>Pilih Device & Printer
+<li>Pilih nama printer yang telah terinstal dengan klik kanan lalu klik printer properties
+<li>Pilih Sharing 
+<li>Centang kotak "Sharing This Printer"
+<li>Klik Apply dan klik Ok
+</li>
+</ol>
+
+
+<ol><p>Apabila komputer Client (ingin terhubung dengan server printer) :
+
+Tekan dan tahan  windows + R , lalu masukan Ip Address target komputer yang akan kita tuju untuk keperluan printing. Misal target komputer A dengan Ip Address 192.168.1....  maka setelah menekan  windows + R  masukan Ip address tersebut di awali dengan tanda  "\\" contoh \\192.168......  kemudian  tekan enter , pilih  nama printer yang akan kita hubungkan , klik kanan pada nama printer lalu klik "connect" .
+
+pada device and printer , terdapat beberapa daftar perangkat termasuk printer & scanner, maka pilih nama printer yang ingin dihubungkan sebagai pilihan utama dengan klik kanan lalu pilih 
+"Set As Default Printer".</p></ol></p>
+                `
+            },
+            art2: {
+                title: "Cara Backup Data Komputer",
+                text: `
+                    <p><p>System Restore adalah fitur dalam Microsoft Windows yang memungkinkan pengguna untuk mengembalikan kondisi komputer mereka (termasuk berkas sistem, aplikasi yang terinstal, Windows Registry , dan pengaturan sistem) ke kondisi sebelumnya, yang dapat digunakan untuk memulihkan dari kegagalan fungsi sistem atau masalah lainnya. Pertama kali disertakan dalam Windows Me , fitur ini telah disertakan dalam semua versi desktop Windows berikutnya yang dirilis sejak saat itu, kecuali Windows Server .  Di Windows 10 , System Restore dimatikan secara default dan harus diaktifkan oleh pengguna agar dapat berfungsi. Fitur ini tidak memengaruhi berkas pribadi seperti dokumen, musik, gambar, dan video.</p>
+<p>Pada versi Windows sebelumnya, hal ini didasarkan pada filter file yang mengamati perubahan untuk sekumpulan ekstensi file tertentu, lalu menyalin file sebelum ditimpa.Versi terbaru dari System Restore yang diperkenalkan oleh Windows Vista menggunakan layanan Shadow Copy sebagai backend (memungkinkan perubahan tingkat blok pada file yang terletak di direktori mana pun pada volume untuk dipantau dan dicadangkan terlepas dari lokasinya) dan memungkinkan System Restore untuk digunakan dari Windows Recovery Environment jika instalasi Windows tidak dapat di-boot sama sekali. </p>
+<p>Dalam System Restore, pengguna dapat membuat titik pemulihan baru secara manual (berbeda dengan sistem yang membuatnya secara otomatis), melakukan rollback ke titik pemulihan yang ada, atau mengubah konfigurasi System Restore. Selain itu, pemulihan itu sendiri dapat dibatalkan. Titik pemulihan lama dibuang untuk menjaga penggunaan volume dalam jumlah yang ditentukan. Bagi banyak pengguna, ini dapat menyediakan titik pemulihan yang mencakup beberapa minggu terakhir. Pengguna yang khawatir dengan kinerja atau penggunaan ruang juga dapat memilih untuk menonaktifkan System Restore sepenuhnya. File yang disimpan pada volume yang tidak dipantau oleh System Restore tidak pernah dicadangkan atau dipulihkan.
+Pemulihan Sistem mencadangkan file sistem dengan ekstensi tertentu (.exe, .dll, dll.) dan menyimpannya untuk pemulihan dan penggunaan nanti.  Ia juga mencadangkan registri dan sebagian besar driver.</p>
+
+<ol>Berikut Cara Mengangktifkan System Restore Pada Windows 10 :</p>
+
+<li>Klik Windows atau Start lalu ketikkan "Restore" , pilih "Create A Restore Point"
+<img src="restore.jpg" alt="System Restore" width="350px" height="250px">
+<br>
+<li>Setelah terbuka, klik satu persatu drive mana yang akan diaktifkan sistem restore , mulai dari drive "System (C:) , lalu klik "Configure".
+<img src="system_protection_restore.jpg" alt="system_protection_restore.jpg" width="350px" height="300px">
+<li>
+Pilih "Turn On System Protection"
+<br>
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNiCB8IrvOOqlVG6yyxt7mQvQ1HxbqRFDcWvFM9AUvewRjShyphenhyphens3k1a5S7uuJgSY9NblfsXKfqK8xuG3BELEE0xmnVe9SnzfT2DxHtoi4LAtLYdRhvGAGcvpPVqr0TuJMbqQMAIkJfC5NJdl-hBR2euy-N70KqYKZCBq5BMS7XCMuGAU3_O8ileJtpdoK75/s457/Screenshot%20(60).png">
+
+<li>
+Lalu pada "Max Usage:" geser ke kanan sampai maximal agar memori yang akan di cadangkan tersebut akan memakan berapa besarnya MB / GB, misalnya jika memori yang dicadangkan disetting 48.83Gb (max) 100%  maka setelah memori dicadangkan setelah memakan sebesar 48.83gb / sudah 100% maka akan otomatis berhenti mencadangkan, dan selanjutnya tidak akan dicadangkan.
+<br>
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzEgWRRBpRddroqLf0SGhdBLCWuK_2TZmHpV7zgHjANOuCpAVTOu_KDeGwsLNsRkesFPjbxG5s29muvrT-pirqiyG7JYfHYjRm7JRzeYZpv1jFhIyAslvLj69yFp9qad13VYfnQwNKqe-WR8BwmcHn1k2HHZhnsJtivqA5H7DMzk8mx93GK89T9Qc5F6Kp/s453/Screenshot%20(61).png">
+
+<li>Klik "Apply" dan Klik "Ok" , selesai
+<br>
+<br>
+        <div class="centered-container">
+            <p class="attribution">
+                ..Selamat Mencoba..
+            </p>
+        </div>
+</ol>
+</li></p>
+                `
+            },
+            art3: {
+                title: "Konsep Dasar Jaringan Peer-to-Peer",
+                text: `
+                    <p>Jaringan lokal **peer-to-peer (P2P)** merupakan arsitektur jaringan yang paling sederhana. Ia memungkinkan beberapa komputer untuk saling terhubung dan berbagi sumber daya seperti file dan printer <span class="highlight">tanpa memerlukan server pusat</span> yang kompleks atau mahal. Pengaturan ini sangat ideal untuk lingkungan rumah, kos, atau kantor kecil (SOHO).</p>
+                        <ul>
+                            <li>**Keunggulan:** Setup yang cepat dan mudah, biaya implementasi yang sangat rendah, dan performa transfer data lokal yang efisien.</li>
+                            <li>**Kelemahan:** Manajemen keamanan dan *backup* harus dilakukan di setiap perangkat secara individu.</li>
+                        </ul>
+
+                        <br>
+                        <img src="peertopeer.jpg" width="100%" height="100%" alt="Diagram jaringan Peer-to-Peer dengan dua komputer terhubung langsung" class="article-image">
+                        <br>
+                        <br>
+                        <p class="caption">Jaringan P2P menghubungkan komputer secara setara tanpa hierarki.</p>
+
+
+                        <h2> Persiapan Peralatan yang Dibutuhkan</h2>
+
+                        <p>Untuk memulai instalasi jaringan P2P, pastikan Anda memiliki komponen-komponen berikut:</p>
+                        <ul>
+                            <li>**Komputer/Perangkat:** Minimal dua perangkat dengan kartu jaringan (NIC) yang berfungsi.</li>
+                            <li>**Media Koneksi:**
+                                <ul>
+                                    <li>**Kabel Ethernet:** Gunakan <span class="highlight">Kabel Crossover</span> jika menghubungkan **dua komputer secara langsung**. Gunakan Kabel Straight-Through jika melewati *Switch/Router*.</li>
+                                    <li>**Perangkat Nirkabel:** Memanfaatkan koneksi Wi-Fi yang sudah ada.</li>
+                                </ul>
+                            </li>
+                            <li>**Perangkat Penghubung (Opsional):** Switch atau Router jika lebih dari dua komputer.</li>
+                        </ul>
+
+                        <br>
+
+                        <h2>Panduan Konfigurasi Langkah Demi Langkah</h2>
+
+                        <h3>1. Konektivitas Fisik dan Alamat IP</h3>
+                        <p>Langkah pertama adalah memastikan perangkat dapat "saling melihat" di level jaringan.</p>
+                        <ul>
+                            <li>**Otomatis (DHCP):** Jika menggunakan router/switch, atur IP ke otomatis.</li>
+                            <li>**Manual (IP Statis):** Jika koneksi langsung dua PC, atur IP statis. Contoh: PC 1: <code>192.168.1.1</code>; PC 2: <code>192.168.1.2</code>. Subnet Mask harus sama: <code>255.255.255.0</code>.</li>
+                        </ul>
+
+                        <h3>2. Kelompok Kerja (*Workgroup*)</h3>
+                        <p>Semua PC Windows harus berada di **Kelompok Kerja** yang sama agar dapat saling berkomunikasi:</p>
+                        <ul>
+                            <li>Akses System Properties pada setiap komputer.</li>
+                            <li>Pastikan nama <span class="highlight">Workgroup</span> (misalnya, <code>WORKGROUP</code>) adalah sama persis di semua PC.</li>
+                        </ul>
+
+                        <h3>3. Mengaktifkan Berbagi (*Network Sharing*)</h3>
+                        <p>Izinkan perangkat untuk mengakses file dan printer satu sama lain:</p>
+                        <ul>
+                            <li>Aktifkan **Network Discovery** dan **File and Printer Sharing** di Pengaturan Jaringan.</li>
+                            <li>Untuk berbagi folder: Klik kanan folder, pilih **Properties** > **Sharing** > **Advanced Sharing**, dan atur **Permissions** (Izin).</li>
+                        </ul></p>
+                `
+            },
+  art4: {
+                title: "Meningkatkan Performa Komputer Anda",
+                text: `
+                <p>Seiring berjalannya waktu, komputer lama seringkali mengalami penurunan performa yang signifikan, menyebabkan frustrasi bagi penggunanya. Aplikasi menjadi lambat, waktu booting memanjang, dan multitasking terasa mustahil. Namun, Anda tidak perlu terburu-buru membeli perangkat baru. Ada beberapa langkah efektif yang dapat diambil untuk memberikan nafas baru pada komputer lama Anda dan membuatnya berjalan lebih cepat dan responsif.</p>
+            
+            <p>Langkah pertama dan seringkali paling efektif adalah membersihkan sistem dari <span class="highlight">file sampah dan program yang tidak perlu</span>. Menggunakan alat pembersih disk bawaan atau aplikasi pihak ketiga dapat membantu menghapus file temporer, cache browser, dan sisa instalasi yang memakan ruang penyimpanan dan memperlambat sistem. Selain itu, menonaktifkan program yang berjalan otomatis saat startup yang tidak penting juga dapat mengurangi beban kerja pada RAM dan CPU.</p>
+            <br>
+            <img src="https://via.placeholder.com/800x450?text=Pembersihan+Software+Komputer" alt="Ilustrasi pembersihan software komputer" class="article-image">
+            <br>
+            <br>
+            <p class="caption">Membersihkan file sampah adalah langkah awal yang krusial untuk mempercepat komputer.</p>
+<br>
+            <p>Peningkatan hardware juga bisa menjadi solusi ampuh, terutama dengan mengganti Hard Disk Drive (HDD) lama dengan <span class="highlight">Solid State Drive (SSD)</span>. SSD menawarkan kecepatan baca/tulis yang jauh lebih tinggi, secara drastis mengurangi waktu booting dan loading aplikasi. Menambah kapasitas RAM juga merupakan investasi yang baik, memungkinkan komputer Anda untuk menjalankan lebih banyak aplikasi secara bersamaan tanpa mengalami lag.</p>
+         <br>
+            <img src="UpgradeSsd.png" width="100%" height="100%" alt="Ilustrasi upgrade SSD dan RAM" class="article-image">
+          <br>
+          <br>
+            <p class="caption">Upgrade ke SSD dan penambahan RAM akan memberikan dampak performa yang signifikan.</p>
+
+            <p>Terakhir, pastikan sistem operasi dan driver Anda selalu <span class="highlight">diperbarui</span>. Pembaruan seringkali menyertakan perbaikan bug, peningkatan keamanan, dan optimasi performa yang dapat membuat komputer Anda berjalan lebih efisien. Dengan kombinasi pembersihan perangkat lunak, peningkatan hardware yang strategis, dan pemeliharaan rutin, komputer lama Anda dapat kembali berfungsi dengan performa yang memuaskan dan produktif, seolah-olah baru kembali.</p>
+            `
+                },
+        
+        };
+
+        function openModal(id) {
+            document.getElementById('modal-body').innerHTML = `<h2>${content[id].title}</h2>${content[id].text}`;
+            document.getElementById('modal-container').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Stop scrolling background
+        }
+
+        function closeModal() {
+            document.getElementById('modal-container').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Enable scrolling again
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('modal-container')) {
+                closeModal();
+            }
+        }
+    </script>
 <script src="floating-chat.js"></script>
 </body>
 </html>
