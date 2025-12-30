@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kebijakan & Privasi - Command Computer Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-purple: #b366ff;
+            --dark-bg: #0a0510;
+            --glass: rgba(179, 102, 255, 0.15);
+            --glass-strong: rgba(179, 102, 255, 0.3);
+            --neon-shadow: 0 0 15px rgba(179, 102, 255, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--dark-bg);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Background Fix consistent with index.html */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(rgba(10, 5, 16, 0.85), rgba(10, 5, 16, 0.85)), 
+                        url('Banner.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 60px 20px;
+        }
+
+        /* Header & Logo */
+        .brand-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .logo-box {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-purple);
+            box-shadow: var(--neon-shadow);
+            margin-bottom: 20px;
+            overflow: hidden;
+            background: black;
+        }
+
+        .logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .main-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px var(--primary-purple);
+            text-align: center;
+        }
+
+        /* Content Area */
+        .policy-container {
+            width: 100%;
+            max-width: 800px;
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(179, 102, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--neon-shadow);
+            z-index: 10;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .policy-section {
+            margin-bottom: 30px;
+        }
+
+        .policy-section h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary-purple);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            border-left: 3px solid var(--primary-purple);
+            padding-left: 15px;
+        }
+
+        .policy-section p, .policy-section li {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 10px;
+        }
+
+        .policy-section ul {
+            list-style: none;
+            padding-left: 5px;
+        }
+
+        .policy-section li::before {
+            content: ">> ";
+            color: var(--primary-purple);
+            font-weight: bold;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: var(--glass-strong);
+            border: 1px solid var(--primary-purple);
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--primary-purple);
+            color: black;
+            box-shadow: var(--neon-shadow);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .credit {
+            margin-top: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            opacity: 0.6;
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            .policy-container {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero-section">
+        
+        <header class="brand-container">
+            <div class="logo-box">
+                <img src="Logo.png" alt="CMD Logo">
+            </div>
+            <h2 class="main-title">Kebijakan & Privasi</h2>
+        </header>
+
+        <main class="policy-container">
+            <div class="policy-section">
+                <h3>1. Pengumpulan Informasi</h3>
+                <p>Kami mengumpulkan informasi yang Anda berikan saat menggunakan jasa kami, termasuk namun tidak terbatas pada nama, kontak WhatsApp/Email, dan detail teknis perangkat Anda untuk keperluan diagnosa perbaikan.</p>
+            </div>
+
+            <div class="policy-section">
+                <h3>2. Keamanan Data Pelanggan</h3>
+                <p>Kerahasiaan data di dalam unit (Laptop/PC) pelanggan adalah prioritas utama kami. Kami berkomitmen untuk:</p>
+                <ul>
+                    <li>Tidak menyalin data pribadi tanpa izin pelanggan.</li>
+                    <li>Menghapus file sementara hasil backup setelah unit diterima kembali oleh pelanggan.</li>
+                    <li>Menjaga privasi konten di dalam media penyimpanan (SSD/HDD) selama proses troubleshooting.</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h3>3. Kebijakan Layanan</h3>
+                <p>Layanan kami mencakup Website Development, Instalasi Software/Hardware, hingga perbaikan Printer dan CCTV. Setiap layanan memiliki masa garansi yang berbeda tergantung pada jenis kerusakan dan suku cadang yang digunakan.</p>
+            </div>
+
+            <div class="policy-section">
+                <h3>4. Hubungi Kami</h3>
+                <p>Jika Anda memiliki pertanyaan mengenai kebijakan privasi ini, silakan hubungi tim Command Computer Service melalui halaman kontak yang tersedia.</p>
+            </div>
+
+            <center>
+                <a href="index.html" class="back-btn">Kembali ke Beranda</a>
+            </center>
+        </main>
+
+        <footer class="credit">
+          © Command Computer Service | By . Reza Malik Al Hakim
+        </footer>
+
+    </section>
+
+</body>
+</html>

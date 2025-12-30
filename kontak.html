@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - Command Computer Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-purple: #b366ff;
+            --dark-bg: #0a0510;
+            --glass: rgba(179, 102, 255, 0.15);
+            --glass-strong: rgba(179, 102, 255, 0.3);
+            --neon-shadow: 0 0 15px rgba(179, 102, 255, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--dark-bg);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(10, 5, 16, 0.8), rgba(10, 5, 16, 0.8)), 
+                        url('Banner.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 40px 20px;
+        }
+
+        .brand-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .logo-box {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-purple);
+            box-shadow: var(--neon-shadow);
+            margin-bottom: 15px;
+            overflow: hidden;
+            background: black;
+        }
+
+        .logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .main-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-align: center;
+            text-shadow: 0 0 10px var(--primary-purple);
+        }
+
+        /* Form Style */
+        .contact-container {
+            width: 100%;
+            max-width: 500px;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(179, 102, 255, 0.3);
+            box-shadow: var(--neon-shadow);
+            z-index: 10;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--primary-purple);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(179, 102, 255, 0.3);
+            border-radius: 8px;
+            color: white;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 10px rgba(179, 102, 255, 0.3);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-purple);
+            color: black;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-submit:hover {
+            background: #d4aaff;
+            box-shadow: 0 0 20px var(--primary-purple);
+            transform: translateY(-2px);
+        }
+ .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: var(--glass-strong);
+            border: 1px solid var(--primary-purple);
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--primary-purple);
+            color: black;
+            box-shadow: var(--neon-shadow);
+            transform: translateY(-2px);
+        }        .back-link {
+            margin-top: 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            opacity: 1;
+            color: var(--primary-purple);
+        }
+
+        .credit {
+            margin-top: 40px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            opacity: 0.6;
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        
+        
+    </style>
+    </head>
+<body>
+
+    <section class="hero-section">
+        <header class="brand-container">
+            <div class="logo-box">
+                <img src="Logo.png" alt="CMD Logo">
+            </div>
+            <h1 class="main-title">Hubungi Kami</h1>
+            <p style="color: var(--primary-purple); letter-spacing: 2px;">Solusi Cepat Masalah Komputer Anda</p>
+        </header>
+
+        <div class="contact-container">
+            <form action="#">
+                <div class="form-group">
+                    <label>NAMA LENGKAP</label>
+                    <input type="text" placeholder="Masukkan nama Anda..." required>
+                </div>
+                <div class="form-group">
+                    <label>EMAIL / WHATSAPP</label>
+                    <input type="text" placeholder="Cara kami menghubungi Anda..." required>
+                </div>
+                <div class="form-group">
+                    <label>PESAN / KELUHAN</label>
+                    <textarea rows="4" placeholder="Ceritakan masalah komputer Anda..." required></textarea>
+                </div>
+              <div style="margin-top: 20px;">
+    <a href="https://wa.me/082122321195" target="_blank" class="btn-submit" style="text-decoration: none; display: block; text-align: center;">
+        Kirim Pesan via WhatsApp
+    </a>
+</div>
+            </form>
+  
+                   
+          
+
+        <a href="index.html" class="back-btn">← Kembali ke Beranda</a>
+
+        <footer class="credit">
+          &copy; Command Computer Service | By . Reza Malik Al Hakim
+        </footer>
+    </section>
+
+</body>
+</html>

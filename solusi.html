@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command Computer Service | Easy Troubleshooting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #b366ff;
+            --dark-bg: #0a0510;
+            --glass: rgba(179, 102, 255, 0.15);
+            --glass-strong: rgba(179, 102, 255, 0.3);
+            --neon-shadow: 0 0 15px rgba(179, 102, 255, 0.5);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--dark-bg);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(10, 5, 16, 0.8), rgba(10, 5, 16, 0.8)), 
+                        url('Banner.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 40px 20px;
+        }
+        .brand-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+            animation: fadeIn 1.2s ease-out;
+        }
+        .logo-box {
+            width: 100px; height: 100px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-purple);
+            box-shadow: var(--neon-shadow);
+            margin-bottom: 20px;
+            overflow: hidden;
+            background: black;
+        }
+        .logo-box img { width: 100%; height: 100%; object-fit: cover; }
+        .main-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.2rem, 4vw, 2.5rem);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+            text-shadow: 0 0 10px var(--primary-purple);
+            margin-bottom: 10px;
+        }
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            width: 100%;
+            max-width: 600px;
+            z-index: 10;
+        }
+        .nav-item {
+            background: var(--glass);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            padding: 15px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .nav-item:hover {
+            background: var(--glass-strong);
+            border-color: var(--primary-purple);
+            transform: translateY(-3px);
+            box-shadow: var(--neon-shadow);
+        }
+        .dropdown { position: relative; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%; left: 0; width: 100%;
+            background: rgba(15, 5, 25, 0.95);
+            border: 1px solid var(--primary-purple);
+            border-radius: 0 0 12px 12px;
+            z-index: 100;
+        }
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown-content a {
+            color: #ccc; padding: 12px; display: block;
+            text-decoration: none; font-size: 0.85rem;
+            border-bottom: 1px solid rgba(179, 102, 255, 0.1);
+        }
+        .dropdown-content a:hover { background: var(--primary-purple); color: black; }
+        .credit { margin-top: 50px; font-family: 'Orbitron', sans-serif; font-size: 0.8rem; opacity: 0.6; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 600px) { .nav-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <section class="hero-section">
+        <header class="brand-container">
+            <div class="logo-box"><img src="Logo.png" alt="CMD Logo"></div>
+            <h1 class="main-title">Pusat Layanan Perbaikan & Troubleshooting</h1>
+            <h3><b>Command Computer Service</b></h3>
+            <p style="color: var(--primary-purple); letter-spacing: 3px;">Solusi Mudah Terpecahkan</p>
+        </header>
+        <nav class="nav-grid">
+            <a href="about.html" class="nav-item">TENTANG KAMI</a>
+            <a href="solusi.html" class="nav-item">SOLUSI KAMI</a>
+            <a href="kontak.html" class="nav-item">KONTAK</a>
+            <a href="https://maps.google.com" target="_blank" class="nav-item">GALERI</a>
+            <a href="kebijakan.html" class="nav-item" style="grid-column: span 2;">KEBIJAKAN & PRIVASI</a>
+            <div class="nav-item dropdown" style="grid-column: span 2;">
+                LAYANAN
+                <div class="dropdown-content">
+                    <a href="#">WEBSITE DEVELOPMENT</a>
+                    <a href="#">INSTAL ULANG WINDOWS</a>
+                    <a href="#">INSTAL SOFTWARE</a>
+                    <a href="#">UPGRADE RAM & SSD</a>
+                    <a href="#">REPAIR HARDWARE</a>
+                </div>
+            </div>
+        </nav>
+        <footer class="credit">© Command Computer Service | By Reza Malik Al Hakim</footer>
+    </section>
+</body>
+</html>
