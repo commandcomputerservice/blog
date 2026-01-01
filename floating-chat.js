@@ -39,7 +39,7 @@
             .wa-send { background: #b366ff; border: none; padding: 0 15px; border-radius: 5px; cursor: pointer; color: black; font-weight: bold; }
         </style>
         <div id="wa-popup">
-            <div class="wa-header">CMD BOT - REZA MALIK</div>
+            <div class="wa-header">IT Live Support</div>
             <div id="wa-chat-box" class="wa-chat-box"></div>
             <div class="wa-footer">
                 <input type="text" id="wa-input" placeholder="Tulis pesan anda...">
