@@ -1,183 +1,142 @@
 /**
- * PROJECT: Command Computer Service Floating Chat
- * DESCRIPTION: Draggable WhatsApp Button with Popup
- * AUTHOR: AI Thought Partner (Gemini)
+ * PROJECT: Command Computer Service - Optimized Bot Logic
+ * FEATURE: Auto-greeting, Keyword detection (Price, Thanks), and State Management
  */
 
-const WHATSAPP_NUMBER = "6282122321195";
-
-// 1. Injeksi Struktur HTML & CSS ke dalam Document
-const chatContainer = document.createElement('div');
-chatContainer.id = 'wa-draggable-wrapper';
-chatContainer.innerHTML = `
-    <style>
-        #wa-draggable-wrapper {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 10000;
-            font-family: 'Rajdhani', sans-serif;
-            touch-action: none; /* Penting untuk mobile dragging */
-        }
-        #wa-button { 
-            width: 65px; height: 65px; 
-            background: #b366ff; 
-            border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; 
-            cursor: move; 
-            box-shadow: 0 0 20px rgba(179, 102, 255, 0.7); 
-            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            user-select: none;
-            border: 2px solid rgba(255,255,255,0.2);
-        }
-        #wa-button:active { transform: scale(0.9); }
-        #wa-popup { 
-            display: none; 
-            position: absolute; 
-            bottom: 85px; 
-            right: 0; 
-            width: 300px; 
-            background: #100a1a; 
-            border: 1px solid #b366ff; 
-            border-radius: 15px; 
-            overflow: hidden; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.9);
-            animation: slideIn 0.3s ease-out;
-        }
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .wa-header { 
-            background: #b366ff; 
-            color: #000; 
-            padding: 15px; 
-            font-weight: bold; 
-            font-family: 'Orbitron'; 
-            font-size: 0.85rem;
-            display: flex;
-            justify-content: space-between;
-        }
-        .wa-body { padding: 20px; background: rgba(10, 5, 16, 0.98); }
-        .wa-body p { color: #fff; margin-bottom: 12px; font-size: 0.95rem; }
-        #wa-input { 
-            width: 100%; padding: 12px; background: rgba(255,255,255,0.05); 
-            border: 1px solid rgba(179, 102, 255, 0.5); border-radius: 8px; 
-            color: #fff; outline: none; font-family: 'Rajdhani';
-        }
-        #wa-input:focus { border-color: #b366ff; box-shadow: 0 0 10px rgba(179, 102, 255, 0.3); }
-        .wa-send-btn { 
-            margin-top: 15px; width: 100%; padding: 12px; 
-            background: #b366ff; border: none; border-radius: 8px; 
-            cursor: pointer; font-weight: bold; font-family: 'Orbitron';
-            color: #000; transition: 0.3s;
-        }
-        .wa-send-btn:hover { background: #d4aaff; box-shadow: 0 0 15px #b366ff; }
-    </style>
+(function() {
+    const WHATSAPP_NUMBER = "6282122321195";
     
-    <div id="wa-popup">
-        <div class="wa-header">
-            <span>CMD SUPPORT</span>
-            <span onclick="this.parentElement.parentElement.style.display='none'" style="cursor:pointer">×</span>
+    // State aplikasi untuk melacak alur percakapan
+    let chatState = {
+        step: 0, 
+        isReturningCustomer: false
+    };
+
+    // 1. Struktur HTML & CSS
+    const chatContainer = document.createElement('div');
+    chatContainer.id = 'wa-draggable-wrapper';
+    chatContainer.innerHTML = `
+        <style>
+            #wa-draggable-wrapper { position: fixed; bottom: 30px; right: 30px; z-index: 10000; font-family: 'Rajdhani', sans-serif; }
+            #wa-button { 
+                width: 65px; height: 65px; background: #b366ff; border-radius: 50%; 
+                display: flex; align-items: center; justify-content: center; cursor: pointer;
+                box-shadow: 0 0 20px rgba(179,102,255,0.6); transition: 0.3s; font-size: 30px;
+            }
+            #wa-popup { 
+                display: none; position: absolute; bottom: 80px; right: 0; width: 330px;
+                background: #100a1a; border: 1px solid #b366ff; border-radius: 12px; overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.5); animation: slideUp 0.4s ease;
+            }
+            @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+            .wa-header { background: #b366ff; color: black; padding: 15px; font-weight: bold; font-family: 'Orbitron'; font-size: 0.8rem; border-bottom: 2px solid rgba(0,0,0,0.1); }
+            .wa-chat-box { height: 280px; overflow-y: auto; padding: 15px; display: flex; flex-direction: column; gap: 10px; background: #0a0510; }
+            .msg { padding: 10px 14px; border-radius: 8px; font-size: 0.9rem; max-width: 85%; line-height: 1.4; }
+            .msg-bot { background: #1a1525; color: white; border-left: 3px solid #b366ff; align-self: flex-start; }
+            .msg-user { background: #b366ff; color: black; align-self: flex-end; font-weight: 600; }
+            .wa-footer { padding: 10px; background: #100a1a; display: flex; gap: 5px; border-top: 1px solid #222; }
+            #wa-input { flex: 1; padding: 10px; background: #1a1525; border: 1px solid #333; color: white; border-radius: 5px; outline: none; }
+            .wa-send { background: #b366ff; border: none; padding: 0 15px; border-radius: 5px; cursor: pointer; color: black; font-weight: bold; }
+        </style>
+        <div id="wa-popup">
+            <div class="wa-header">CMD BOT - REZA MALIK</div>
+            <div id="wa-chat-box" class="wa-chat-box"></div>
+            <div class="wa-footer">
+                <input type="text" id="wa-input" placeholder="Tulis pesan anda...">
+                <button id="wa-send-btn" class="wa-send">➤</button>
+            </div>
         </div>
-        <div class="wa-body">
-            <p>Halo! Ada kendala perbaikan? Kirim pesan untuk solusi cepat.</p>
-            <input type="text" id="wa-input" placeholder="Tulis keluhan Anda..." autocomplete="off">
-            <button class="wa-send-btn" id="wa-submit">KIRIM KE WHATSAPP</button>
-        </div>
-    </div>
-    
-    <div id="wa-button">
-        <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-        </svg>
-    </div>
-`;
-document.body.appendChild(chatContainer);
+        <div id="wa-button">💬</div>
+    `;
+    document.body.appendChild(chatContainer);
 
-// 2. Logika Drag & Drop (Pemindahan Tombol)
-const wrapper = document.getElementById("wa-draggable-wrapper");
-const btn = document.getElementById("wa-button");
-const popup = document.getElementById("wa-popup");
-const inputField = document.getElementById("wa-input");
-const submitBtn = document.getElementById("wa-submit");
+    const btn = document.getElementById('wa-button');
+    const popup = document.getElementById('wa-popup');
+    const chatBox = document.getElementById('wa-chat-box');
+    const inputField = document.getElementById('wa-input');
+    const sendBtn = document.getElementById('wa-send-btn');
 
-let isDragging = false;
-let startX, startY, initialX, initialY;
-let xOffset = 0, yOffset = 0;
-
-function dragStart(e) {
-    if (e.type === "touchstart") {
-        startX = e.touches[0].clientX - xOffset;
-        startY = e.touches[0].clientY - yOffset;
-    } else {
-        startX = e.clientX - xOffset;
-        startY = e.clientY - yOffset;
+    function addMessage(text, sender) {
+        const div = document.createElement('div');
+        div.className = `msg msg-${sender}`;
+        div.innerText = text;
+        chatBox.appendChild(div);
+        chatBox.scrollTop = chatBox.scrollHeight;
     }
-    
-    if (e.target === btn || btn.contains(e.target)) {
-        isDragging = true;
+
+    function getGreeting() {
+        const hour = new Date().getHours();
+        if (hour >= 5 && hour < 11) return "pagi";
+        if (hour >= 11 && hour < 15) return "siang";
+        if (hour >= 15 && hour < 18) return "sore";
+        return "malam";
     }
-}
 
-function dragEnd() {
-    isDragging = false;
-}
+    function handleChat() {
+        const text = inputField.value.trim();
+        if (!text) return;
 
-function drag(e) {
-    if (isDragging) {
-        e.preventDefault();
-        let currentX, currentY;
-        
-        if (e.type === "touchmove") {
-            currentX = e.touches[0].clientX - startX;
-            currentY = e.touches[0].clientY - startY;
-        } else {
-            currentX = e.clientX - startX;
-            currentY = e.clientY - startY;
-        }
+        addMessage(text, 'user');
+        inputField.value = "";
 
-        xOffset = currentX;
-        yOffset = currentY;
-        wrapper.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+        setTimeout(() => {
+            const lowText = text.toLowerCase();
+
+            // 1. CEK KATA KUNCI: HARGA / BERAPA
+            if (lowText.includes("harga") || lowText.includes("berapa") || lowText.includes("biaya") || lowText.includes("ongkos")) {
+                addMessage("Mohon maaf kakak sebelumnya kami mengerti apa yang kakak maksud namun untuk harga dan berapanya belum bisa dipastikan dikarenakan tergantung jenis merk atau kendalanya apa saja , namun jika kakak ingin melakukan instal ulang ataupun upgrade perangkat komputernya disini bisa di kisaran mulai dari Rp. 100.000 (only reinstal windows & free software) dan jika teridentifikasi kendala tambahan selain itu paling akan ada biaya tambahan jika memang harus ada komponen yang harus di beli kak. Ada lagi yang bisa saya bantu? 😊", "bot");
+                return;
+            }
+
+            // 2. CEK KATA KUNCI: TERIMA KASIH
+            if (lowText.includes("terima kasih") || lowText.includes("terimakasih") || lowText.includes("tq") || lowText.includes("thanks")) {
+                addMessage("sama-sama kakak, semoga puas dengan layanan perbaikan kami 😉 , ada lagi yang ingin kami bantu?", "bot");
+                return;
+            }
+
+            // 3. ALUR PERCAKAPAN UTAMA (Step-by-Step)
+            if (chatState.step === 0) {
+                const salam = getGreeting();
+                addMessage(`Halo selamat ${salam} kakak perkenalkan saya Reza, mohon maaf kak boleh saya konfirmasi terlebih dahulu ,apakah sebelumnya kakak pernah melakukan service laptop atau PC di Command Computer Service 😊?`, "bot");
+                chatState.step = 1;
+            } 
+            else if (chatState.step === 1) {
+                if (lowText.includes("tidak") || lowText.includes("belum")) {
+                    addMessage("Baik kakak , silahkan ditunggu ya kami akan hubungkan kakak bersama tim IT Support kami ya 😊", "bot");
+                    chatState.isReturningCustomer = false;
+                    chatState.step = 2;
+                } else if (lowText.includes("ya") || lowText.includes("sudah")) {
+                    addMessage("Baik , bagaimana kabarnya kakak sehat? kami sangat senang bertemu kembali dengan anda , namun kendala apa yang sekarang terjadi pada perangkat kakak?", "bot");
+                    chatState.isReturningCustomer = true;
+                    chatState.step = 2;
+                } else {
+                    // Fitur "Bot Mengerti Apa Saja"
+                    addMessage(`Saya mengerti tentang "${text}", namun boleh konfirmasi dulu kak apakah sebelumnya sudah pernah service di sini?`, "bot");
+                }
+            } 
+            else if (chatState.step === 2) {
+                // Arahkan ke WhatsApp
+                let waMsg = chatState.isReturningCustomer 
+                    ? "Halo kak, apa kabar? saya ingin melakukan kembali service perangkat disini" 
+                    : "Halo , saya ingin bertanya seputar kendala perangkat yang saya miliki namun saya belum pernah service disini";
+                
+                addMessage("Baik kak, saya akan hubungkan kakak langsung ke WhatsApp admin untuk detail teknisnya...", "bot");
+                setTimeout(() => {
+                    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waMsg)}`, '_blank');
+                    chatState.step = 0; // Reset ke awal
+                }, 1500);
+            }
+        }, 800);
     }
-}
 
-// Event Listeners Drag
-document.addEventListener("mousedown", dragStart);
-document.addEventListener("mouseup", dragEnd);
-document.addEventListener("mousemove", drag);
-document.addEventListener("touchstart", dragStart, { passive: false });
-document.addEventListener("touchend", dragEnd);
-document.addEventListener("touchmove", drag, { passive: false });
-
-// 3. Logika Klik & Pengiriman Pesan
-let dragThreshold = 5; // Toleransi pixel agar tidak tertukar drag & klik
-let moveDetected = false;
-
-btn.addEventListener("mousedown", () => { moveDetected = false; });
-btn.addEventListener("mousemove", () => { moveDetected = true; });
-
-btn.addEventListener("click", () => {
-    // Hanya buka popup jika tombol tidak sedang digeser
-    if (!moveDetected) {
+    // Bindings
+    sendBtn.onclick = handleChat;
+    inputField.onkeypress = (e) => { if (e.key === "Enter") handleChat(); };
+    btn.onclick = () => {
         const isVisible = popup.style.display === "block";
         popup.style.display = isVisible ? "none" : "block";
-        if (!isVisible) inputField.focus();
-    }
-});
-
-function handleSend() {
-    const msg = inputField.value.trim();
-    if (msg !== "") {
-        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
-        window.open(url, '_blank');
-        inputField.value = "";
-        popup.style.display = "none";
-    }
-}
-
-submitBtn.addEventListener("click", handleSend);
-inputField.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") handleSend();
-});
+        if (!isVisible && chatBox.children.length === 0) {
+            addMessage("Halo! Selamat datang di Command Computer Service. Ketik pesan Anda untuk memulai konsultasi.", "bot");
+        }
+    };
+})();
