@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontak - Command Computer Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
     
     <style>
@@ -15,11 +16,7 @@
             --neon-shadow: 0 0 15px rgba(179, 102, 255, 0.5);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Rajdhani', sans-serif;
@@ -36,109 +33,87 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             background: linear-gradient(rgba(10, 5, 16, 0.8), rgba(10, 5, 16, 0.8)), 
                         url('Banner.jpg') no-repeat center center;
             background-size: cover;
-            background-attachment: fixed;
             padding: 40px 20px;
         }
 
-        .brand-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 30px;
-            animation: fadeIn 1.2s ease-out;
-        }
+        .brand-container { text-align: center; margin-bottom: 30px; }
 
         .logo-box {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            border: 2px solid var(--primary-purple);
-            box-shadow: var(--neon-shadow);
-            margin-bottom: 15px;
-            overflow: hidden;
-            background: black;
+            width: 100px; height: 100px; margin: 0 auto 15px;
+            border-radius: 50%; border: 2px solid var(--primary-purple);
+            overflow: hidden; background: black; box-shadow: var(--neon-shadow);
         }
 
-        .logo-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .logo-box img { width: 100%; height: 100%; object-fit: cover; }
 
         .main-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-align: center;
+            font-family: 'Orbitron', sans-serif; font-size: 2rem;
+            text-transform: uppercase; letter-spacing: 4px;
             text-shadow: 0 0 10px var(--primary-purple);
         }
 
-        /* Form Style */
         .contact-container {
-            width: 100%;
-            max-width: 500px;
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid rgba(179, 102, 255, 0.3);
-            box-shadow: var(--neon-shadow);
-            z-index: 10;
+            width: 100%; max-width: 600px; /* Ukuran diperlebar sedikit untuk peta */
+            background: var(--glass); backdrop-filter: blur(10px);
+            padding: 30px; border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
 
-        .form-group {
-            margin-bottom: 15px;
-        }
+        .form-group { margin-bottom: 20px; }
 
         .form-group label {
-            display: block;
-            margin-bottom: 5px;
+            display: block; margin-bottom: 8px;
+            font-family: 'Orbitron', sans-serif; font-size: 0.8rem;
             color: var(--primary-purple);
-            font-weight: 600;
-            letter-spacing: 1px;
         }
 
         .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            background: rgba(0, 0, 0, 0.5);
+            width: 100%; padding: 12px; background: rgba(0, 0, 0, 0.5);
             border: 1px solid rgba(179, 102, 255, 0.3);
-            border-radius: 8px;
-            color: white;
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 1rem;
-        }
-
-        .form-group input:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-purple);
-            box-shadow: 0 0 10px rgba(179, 102, 255, 0.3);
+            border-radius: 8px; color: white; font-size: 1rem;
         }
 
         .btn-submit {
-            width: 100%;
-            padding: 12px;
-            background: var(--primary-purple);
-            color: black;
-            border: none;
-            border-radius: 8px;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-            text-transform: uppercase;
+            width: 100%; padding: 15px; background: #25d366;
+            border: none; border-radius: 8px; color: white;
+            font-family: 'Orbitron', sans-serif; font-weight: bold;
+            cursor: pointer; transition: 0.3s; display: block;
+            text-align: center; text-decoration: none;
         }
 
-        .btn-submit:hover {
-            background: #d4aaff;
-            box-shadow: 0 0 20px var(--primary-purple);
-            transform: translateY(-2px);
+        .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4); }
+
+        /* Map Styling */
+        .map-container {
+            margin-top: 30px; border-radius: 12px; overflow: hidden;
+            border: 1px solid var(--primary-purple); box-shadow: var(--neon-shadow);
         }
+
+        .map-container iframe { width: 100%; height: 250px; border: none; display: block; }
+
+        /* Social Media Styling */
+        .social-media-container { margin-top: 30px; text-align: center; }
+        .social-media-container h3 {
+            font-family: 'Orbitron', sans-serif; font-size: 0.9rem;
+            margin-bottom: 15px; color: var(--primary-purple);
+        }
+
+        .social-icons { display: flex; justify-content: center; gap: 20px; }
+        .social-icon {
+            width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;
+            background: var(--glass); border: 1px solid var(--primary-purple);
+            border-radius: 50%; color: white; font-size: 1.2rem; transition: 0.3s;
+        }
+
+        .social-icon:hover {
+            background: var(--primary-purple); color: black;
+            transform: translateY(-5px); box-shadow: var(--neon-shadow);
+        }
+
  .back-btn {
             display: inline-block;
             margin-top: 20px;
@@ -152,41 +127,12 @@
             font-size: 0.9rem;
             transition: all 0.3s ease;
         }
+        .back-btn { margin-top: 25px; color: white; text-decoration: none; font-family: 'Orbitron'; font-size: 0.8rem; opacity: 0.7; }
+        .back-btn:hover { color: var(--primary-purple); opacity: 1; }
 
-        .back-btn:hover {
-            background: var(--primary-purple);
-            color: black;
-            box-shadow: var(--neon-shadow);
-            transform: translateY(-2px);
-        }        .back-link {
-            margin-top: 20px;
-            color: white;
-            text-decoration: none;
-            font-size: 0.9rem;
-            opacity: 0.7;
-            transition: 0.3s;
-        }
-
-        .back-link:hover {
-            opacity: 1;
-            color: var(--primary-purple);
-        }
-
-        .credit {
-            margin-top: 40px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.8rem;
-            opacity: 0.6;
-            text-align: center;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        
-        
+        .credit { margin-top: 40px; font-size: 0.8rem; opacity: 0.5; text-align: center; }
     </style>
-    </head>
+</head>
 <body>
 
     <section class="hero-section">
@@ -205,29 +151,43 @@
                     <input type="text" placeholder="Masukkan nama Anda..." required>
                 </div>
                 <div class="form-group">
-                    <label>EMAIL / WHATSAPP</label>
-                    <input type="text" placeholder="Cara kami menghubungi Anda..." required>
-                </div>
-                <div class="form-group">
                     <label>PESAN / KELUHAN</label>
-                    <textarea rows="4" placeholder="Ceritakan masalah komputer Anda..." required></textarea>
+                    <textarea rows="3" placeholder="Ceritakan masalah komputer Anda..." required></textarea>
                 </div>
-              <div style="margin-top: 20px;">
-    <a href="https://wa.me/6282122321195" target="_blank" class="btn-submit" style="text-decoration: none; display: block; text-align: center;">
-        Kirim Pesan via WhatsApp
-    </a>
-</div>
+                <a href="https://wa.me/082122321195" target="_blank" class="btn-submit">
+                    <i class="fab fa-whatsapp"></i> Kirim Pesan via WhatsApp
+                </a>
             </form>
-  
-                   
-          
 
-        <a href="index.html" class="back-btn">← Kembali ke Beranda</a>
+            <div class="map-container">
+            <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.854088265691!2d107.4616534!3d-6.5750257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e690fb683539ba9%3A0xbaf1e249c9a10d4a!2sCommand%20Computer%20Service!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+    width="100%" 
+    height="250" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+            </div>
+
+            <div class="social-media-container">
+                <h3>IKUTI KAMI</h3>
+                <div class="social-icons">
+                    <a href="https://instagram.com/_reza1996ma_" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/share/1BmzL2DLS5/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://youtube.com/@rezamalikalhakim?si=sdxrhL8XzcBsnANW" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-btn">Kembali ke Beranda</a>
 
         <footer class="credit">
           &copy; Command Computer Service | By . Reza Malik Al Hakim
         </footer>
     </section>
-<script src="floating-chat.js"></script>
+
+    <script src="floating-chat.js"></script>
 </body>
 </html>
