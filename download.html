@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    /* Styling Container */
+    .download-wrapper {
+        text-align: center;
+        margin: 20px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Styling Teks Hitung Mundur */
+    #timer-text {
+        font-size: 18px;
+        color: #555;
+        margin-bottom: 15px;
+    }
+
+    /* Styling Tombol (Awalnya Tersembunyi) */
+    .btn-download {
+        display: none; /* Disembunyikan dulu */
+        padding: 15px 35px;
+        background-color: green; /* Biru */
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0,123,255,0.3);
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn-download:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px);
+    }
+</style>
+</head>
+<body>
+
+<div class="download-wrapper">
+    <div id="timer-text">
+        Mohon tunggu, link download akan muncul dalam <span id="seconds">10</span> detik...
+    </div>
+
+    <a href="https://www.effectivegatecpm.com/nwv9m6w7w?key=87a76382e2d404043f0070ecf6b2236e" id="download-btn" class="btn-download" target="_blank">
+        Download Software Gratis Disini
+    </a>
+</div>
+
+<script>
+    var seconds = 10; // Ubah angka ini untuk durasi waktu (dalam detik)
+    var display = document.getElementById('seconds');
+    var timerText = document.getElementById('timer-text');
+    var downloadBtn = document.getElementById('download-btn');
+
+    var countdown = setInterval(function() {
+        seconds--;
+        display.textContent = seconds;
+
+        if (seconds <= 0) {
+            clearInterval(countdown);
+            timerText.style.display = 'none'; // Sembunyikan teks timer
+            downloadBtn.style.display = 'inline-block'; // Munculkan tombol
+        }
+    }, 1000);
+</script>
+
+</body>
+</html>
