@@ -1,35 +1,7 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<script>
-  // --- Konfigurasi Link Tujuan ---
-  var linkTujuan = "https://mostbeautuleedehad.com?4t8ig=1126421";
-  var namaKunciPenyimpanan = "statusPengalihanBlog"; // Nama unik untuk mencatat status
 
-  // --- Logika Pengalihan ---
-  (function() {
-      try {
-          // Memeriksa apakah browser mendukung localStorage
-          if (window.localStorage) {
-              // Memeriksa apakah kunci 'statusPengalihanBlog' sudah ada
-              if (!localStorage.getItem(namaKunciPenyimpanan)) {
-                  // Jika BELUM ada, berarti ini kunjungan pertama.
-                  
-                  // 1. Catat bahwa mereka sudah dialihkan
-                  localStorage.setItem(namaKunciPenyimpanan, "sudah");
-
-                  // 2. Lakukan pengalihan
-                  window.location.replace(linkTujuan);
-              }
-              // Jika SUDAH ada (else), jangan lakukan apa-apa, biarkan halaman dimuat.
-          }
-      } catch (e) {
-          // Jika terjadi error (misal localStorage dinonaktifkan di browser pengguna),
-          // abaikan saja agar blog tetap bisa dibuka.
-          console.log("Pengalihan otomatis tidak dapat dilakukan pada browser ini.");
-      }
-  })();
-</script>
 
 
     <meta charset="UTF-8">
