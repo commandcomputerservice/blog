@@ -2,21 +2,26 @@
 <html lang="id">
 <head>
 <script>
-  (function() {
-    // Mengecek apakah user sudah pernah dialihkan sebelumnya
-    const hasRedirected = localStorage.getItem('alreadyRedirected');
+  // Konfigurasi Link
+  const targetIklan = "https://www.effectivegatecpm.com/at15fxeiwa?key=350291071b499873de65f223667ce6da";
+  const targetAkhir = "https://commandcomputerservice.github.io/blog";
 
-    if (!hasRedirected) {
-      // Tandai bahwa user sudah dialihkan agar tidak looping (berulang)
-      localStorage.setItem('alreadyRedirected', 'true');
+  // Mengambil hitungan redirect dari session browser
+  let redirectCount = sessionStorage.getItem('redirect_step') || 0;
 
-      // Alihkan ke link tujuan
-      window.location.href = "https://www.effectivegatecpm.com/at15fxeiwa?key=350291071b499873de65f223667ce6da";
-    }
-  })();
+  if (redirectCount < 2) {
+    // Tambah hitungan dan simpan ke session
+    redirectCount++;
+    sessionStorage.setItem('redirect_step', redirectCount);
+
+    // Arahkan ke link iklan
+    window.location.href = targetIklan;
+  } else {
+    // Jika sudah 2 kali, biarkan user di halaman blog (atau arahkan ke target akhir)
+    console.log("Redirect selesai. Selamat datang di blog.");
+    // sessionStorage.removeItem('redirect_step'); // Opsional: hapus jika ingin mengulang saat browser ditutup
+  }
 </script>
-
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
