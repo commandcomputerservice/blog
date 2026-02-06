@@ -1,27 +1,7 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<script>
-  // Konfigurasi Link
-  const targetIklan = "https://www.youtube.com/@rezamalikalhakim?sub_confirmation=1";
-  const targetAkhir = "https://commandcomputerservice.github.io/blog";
 
-  // Mengambil hitungan redirect dari session browser
-  let redirectCount = sessionStorage.getItem('redirect_step') || 0;
-
-  if (redirectCount < 2) {
-    // Tambah hitungan dan simpan ke session
-    redirectCount++;
-    sessionStorage.setItem('redirect_step', redirectCount);
-
-    // Arahkan ke link iklan
-    window.location.href = targetIklan;
-  } else {
-    // Jika sudah 2 kali, biarkan user di halaman blog (atau arahkan ke target akhir)
-    console.log("Redirect selesai. Selamat datang di blog.");
-    // sessionStorage.removeItem('redirect_step'); // Opsional: hapus jika ingin mengulang saat browser ditutup
-  }
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
