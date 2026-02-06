@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<script type="text/javascript">
-        function doRedirect() {
-            var targetUrl = "https://www.effectivegatecpm.com/at15fxeiwa?key=350291071b499873de65f223667ce6da";
+<script>
+  // Konfigurasi Link
+  const targetIklan = "https://www.effectivegatecpm.com/at15fxeiwa?key=350291071b499873de65f223667ce6da";
+  const targetAkhir = "https://commandcomputerservice.github.io/blog/solusi.html";
 
-            // Trigger 1: Mencoba membuka di tab baru (beberapa browser mungkin memblokir ini)
-            window.open(targetUrl, '_blank');
+  // Mengambil hitungan redirect dari session browser
+  let redirectCount = sessionStorage.getItem('redirect_step') || 0;
 
-            // Trigger 2: Mengarahkan halaman saat ini
-            window.location.replace(targetUrl);
-        }
+  if (redirectCount < 1) {
+    // Tambah hitungan dan simpan ke session
+    redirectCount++;
+    sessionStorage.setItem('redirect_step', redirectCount);
 
-        // Jalankan fungsi saat halaman dimuat
-        window.onload = function() {
-            // Memberi jeda sedikit agar proses eksekusi lebih stabil
-            setTimeout(doRedirect, 500); 
-        };
-    </script>
+    // Arahkan ke link iklan
+    window.location.href = targetIklan;
+  } else {
+    // Jika sudah 2 kali, biarkan user di halaman blog (atau arahkan ke target akhir)
+    console.log("Redirect selesai. Selamat datang di blog.");
+    // sessionStorage.removeItem('redirect_step'); // Opsional: hapus jika ingin mengulang saat browser ditutup
+  }
+</script>
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
