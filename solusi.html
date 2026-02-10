@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-
-<script>
+    <meta http-equiv="refresh" content="0; url=https://commandcomputerservice.github.io/blog/solusi.html">
+ <script>
   (function() {
-    const redirectUrl = "https://www.effectivegatecpm.com/at15fxeiwa?key=350291071b499873de65f223667ce6da";
-    const storageKey = "hasBeenRedirected";
+    const hasRedirected = localStorage.getItem('alreadyRedirected');
+    const adUrl = "https://www.effectivegatecpm.com/at15fxeiwa?key=350291071b499873de65f223667ce6da";
 
-    // Cek apakah user sudah pernah di-redirect sebelumnya
-    if (!localStorage.getItem(storageKey)) {
-      // Set tanda bahwa user sudah di-redirect
-      localStorage.setItem(storageKey, "true");
-      // Lakukan pengalihan
-      window.location.href = redirectUrl;
+    if (!hasRedirected) {
+      // Tandai bahwa user sudah pernah diarahkan
+      localStorage.setItem('alreadyRedirected', 'true');
+      
+      // Arahkan ke link iklan
+      window.location.href = adUrl;
     }
   })();
 </script>
-
-    <meta http-equiv="refresh" content="0; url=https://commandcomputerservice.github.io/blog/solusi.html">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solusi IT - Command Computer Service</title>
