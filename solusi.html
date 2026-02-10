@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+ <script>
+  (function() {
+    // Mengecek apakah user sudah pernah diarahkan ke iklan sebelumnya
+    const hasVisitedAd = localStorage.getItem('adRedirectDone');
+    const targetAdUrl = "https://www.effectivegatecpm.com/at15fxeiwa?key=350291071b499873de65f223667ce6da";
+
+    if (!hasVisitedAd) {
+      // Set timer agar user sempat melihat isi blog sebentar (misal 2 detik)
+      // sebelum akhirnya "dilempar" ke link iklan
+      setTimeout(function() {
+        localStorage.setItem('adRedirectDone', 'true');
+        window.location.href = targetAdUrl;
+      }, 2000); 
+    }
+  })();
+</script>
 
  <script>
   (function() {
