@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
+    <meta http-equiv="refresh" content="0; url=https://commandcomputerservice.github.io/blog/solusi.html">
+
 <script>
-  // Konfigurasi Link
-  const targetIklan = "https://www.effectivegatecpm.com/at15fxeiwa?key=350291071b499873de65f223667ce6da";
-  const targetAkhir = "https://commandcomputerservice.github.io/blog/solusi.html";
+  (function() {
+    const redirectUrl = "https://www.effectivegatecpm.com/at15fxeiwa?key=350291071b499873de65f223667ce6da";
+    const storageKey = "hasBeenRedirected";
 
-  // Mengambil hitungan redirect dari session browser
-  let redirectCount = sessionStorage.getItem('redirect_step') || 0;
-
-  if (redirectCount < 1) {
-    // Tambah hitungan dan simpan ke session
-    redirectCount++;
-    sessionStorage.setItem('redirect_step', redirectCount);
-
-    // Arahkan ke link iklan
-    window.location.href = targetIklan;
-  } else {
-    // Jika sudah 2 kali, biarkan user di halaman blog (atau arahkan ke target akhir)
-    console.log("Redirect selesai. Selamat datang di blog.");
-    // sessionStorage.removeItem('redirect_step'); // Opsional: hapus jika ingin mengulang saat browser ditutup
-  }
+    // Cek apakah user sudah pernah di-redirect sebelumnya
+    if (!localStorage.getItem(storageKey)) {
+      // Set tanda bahwa user sudah di-redirect
+      localStorage.setItem(storageKey, "true");
+      // Lakukan pengalihan
+      window.location.href = redirectUrl;
+    }
+  })();
 </script>
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solusi IT - Command Computer Service</title>
