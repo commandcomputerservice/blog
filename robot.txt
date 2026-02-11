@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://commandcomputerservice.github.io/blog/sitemap.xml
