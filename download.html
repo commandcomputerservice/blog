@@ -1,172 +1,150 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-
-<script>
-    (function() {
-        // Nama kunci untuk menandai apakah user sudah redirect
-        const storageKey = "hasRedirected_Solusi";
-
-        // Cek apakah kunci sudah ada di LocalStorage
-        if (!localStorage.getItem(storageKey)) {
-            // Jika belum ada, set kunci agar tidak redirect lagi nantinya
-            localStorage.setItem(storageKey, "true");
-
-            // Redirect ke link tujuan pertama (iklan/gate)
-            window.location.href = "https://www.effectivegatecpm.com/nwv9m6w7w?key=87a76382e2d404043f0070ecf6b2236e";
-        }
-    })();
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Downloads | Page</title>
     
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="commandcomputerservice.github.io/blog/download.html" />
+    <script>
+        (function() {
+            const redirectLink = "https://www.effectivegatecpm.com/nwv9m6w7w?key=87a76382e2d404043f0070ecf6b2236e";
+            let redirectCount = parseInt(localStorage.getItem('download_redirect_count')) || 0;
 
-<style>
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f9;
-    }
+            if (redirectCount < 2) {
+                localStorage.setItem('download_redirect_count', redirectCount + 1);
+                window.location.replace(redirectLink);
+            }
+        })();
+    </script>
 
-    /* --- Styling Navigasi Menu --- */
-    .navbar {
-        background-color: #333;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-    }
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: black;
+            font-family: 'Courier New', Courier, monospace;
+        }
 
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
+        #canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
 
-    .dropbtn {
-        background-color: #333;
-        color: white;
-        padding: 16px 25px;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
 
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #ffffff;
-        min-width: 220px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-        border-radius: 4px;
-    }
+        h1 {
+            color: #bc13fe;
+            text-shadow: 0 0 10px #bc13fe, 0 0 20px #bc13fe;
+            margin-bottom: 50px;
+            letter-spacing: 5px;
+            font-size: 2.5rem;
+        }
 
-    .dropdown-content a {
-        color: #333;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        border-bottom: 1px solid #eee;
-        transition: 0.3s;
-    }
+        .btn-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
-    .dropdown-content a:hover {
-        background-color: #f1f1f1;
-        color: green;
-        padding-left: 20px;
-    }
+        .hacker-btn {
+            background: transparent;
+            color: #39ff14; 
+            border: 2px solid #39ff14;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 5px #39ff14;
+            outline: none;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
+        .hacker-btn:hover {
+            box-shadow: 0 0 20px #39ff14;
+            transform: translateY(-3px);
+        }
 
-    .dropdown:hover .dropbtn {
-        background-color: #444;
-    }
-
-    /* --- Styling Container Download --- */
-    .download-wrapper {
-        text-align: center;
-        margin: 50px 20px;
-    }
-
-    #timer-text {
-        font-size: 18px;
-        color: #555;
-        margin-bottom: 25px;
-    }
-
-    .btn-download {
-        display: none;
-        padding: 15px 40px;
-        background-color: green;
-        color: white;
-        text-decoration: none;
-        font-size: 18px;
-        font-weight: bold;
-        border-radius: 50px;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(0,128,0,0.3);
-        border: none;
-        cursor: pointer;
-    }
-
-    .btn-download:hover {
-        background-color: #006400;
-        transform: translateY(-2px);
-    }
-
-    /* Responsive Mobile */
-    @media screen and (max-width: 600px) {
-        .dropbtn { width: 100vw; }
-        .dropdown-content { width: 100vw; position: relative; }
-    }
-</style>
+        .hacker-btn:active {
+            color: #bc13fe; 
+            border-color: #bc13fe;
+            box-shadow: 0 0 30px #bc13fe;
+            transform: scale(0.95);
+        }
+    </style>
 </head>
 <body>
 
-<div class="navbar">
-    <div class="dropdown">
-        <button class="dropbtn">Software ▼</button>
-        <div class="dropdown-content">
-            <a href="https://drive.google.com/drive/folders/14n1xRgwTYc4en2LkJhc8BmZs27jyS0qi?usp=sharing">MS. OFFICE</a>
-            <a href="https://drive.google.com/drive/folders/1mMXOvWFMbkUwZAEMSSA-gqSeZ2vzekgW?usp=sharing">ACTIVATOR</a>
-            <a href="https://drive.google.com/drive/folders/1VPW8LQ3rTaOjvBHIUqT_aYm4ajINq4KJ?usp=sharing">WINDOWS UPDATE BLOCKER</a>
-            <a href="#">EDITOR</a>
-            <a href="#">ISO WINDOWS</a>
+    <canvas id="canvas"></canvas>
+
+    <div class="container">
+        <h1>SOFTWARE DOWNLOADS</h1>
+        <div class="btn-container">
+            <a href="index.html" class="hacker-btn"><span>&#8592;</span> Beranda</a>
+            
+            <a href="https://drive.google.com/drive/folders/14n1xRgwTYc4en2LkJhc8BmZs27jyS0qi?usp=drive_link" class="hacker-btn">Ms.Office</a>
+            <a href="https://drive.google.com/drive/folders/1mMXOvWFMbkUwZAEMSSA-gqSeZ2vzekgW?usp=drive_link" class="hacker-btn">Activator</a>
+            <a href="https://drive.google.com/drive/folders/1VPW8LQ3rTaOjvBHIUqT_aYm4ajINq4KJ?usp=sharing" class="hacker-btn">Update Blocker</a>
         </div>
     </div>
-</div>
 
-<div class="download-wrapper">
-    <div id="timer-text">
-        Mohon tunggu, link download akan muncul dalam <span id="seconds">10</span> detik...
-    </div>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
 
-    <a href="https://www.effectivegatecpm.com/nwv9m6w7w?key=87a76382e2d404043f0070ecf6b2236e" id="download-btn" class="btn-download" target="_blank">
-        Download Software Gratis Disini
-    </a>
-</div>
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
 
-<script>
-    var seconds = 10; 
-    var display = document.getElementById('seconds');
-    var timerText = document.getElementById('timer-text');
-    var downloadBtn = document.getElementById('download-btn');
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789$+-*/=%"\'#&_(),.;:?!\\|{}<>[]^~';
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
 
-    var countdown = setInterval(function() {
-        seconds--;
-        display.textContent = seconds;
-
-        if (seconds <= 0) {
-            clearInterval(countdown);
-            timerText.style.display = 'none';
-            downloadBtn.style.display = 'inline-block';
+        const drops = [];
+        for (let x = 0; x < columns; x++) {
+            drops[x] = 1;
         }
-    }, 1000);
-</script>
 
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#bc13fe'; 
+            ctx.font = fontSize + 'px arial';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = characters.charAt(Math.floor(Math.random() * characters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        setInterval(draw, 33);
+    </script>
 </body>
 </html>
