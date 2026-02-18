@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri | Command Computer Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-purple: #b366ff;
+            --dark-bg: #0a0510;
+            --glass: rgba(179, 102, 255, 0.15);
+            --glass-strong: rgba(179, 102, 255, 0.3);
+            --neon-shadow: 0 0 15px rgba(179, 102, 255, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--dark-bg);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Background Fix */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(10, 5, 16, 0.8), rgba(10, 5, 16, 0.8)), 
+                        url('Banner.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 40px 20px;
+        }
+
+        /* Header & Logo */
+        .brand-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .logo-box {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-purple);
+            box-shadow: var(--neon-shadow);
+            margin-bottom: 20px;
+            overflow: hidden;
+            background: black;
+        }
+
+        .logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .main-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.5rem, 5vw, 3rem);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-align: center;
+            text-shadow: 0 0 10px var(--primary-purple);
+            margin-bottom: 10px;
+        }
+        
+        
+
+        /* Navigation Grid */
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            width: 100%;
+            max-width: 600px;
+            z-index: 10;
+        }
+
+        .nav-item {
+            position: center;
+            background: var(--glass);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            padding: 15px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .nav-item:hover {
+            background: var(--glass-strong);
+            border-color: var(--primary-purple);
+            transform: translateY(-3px);
+            box-shadow: var(--neon-shadow);
+        }
+
+        /* Dropdown khusus Layanan */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 5, 25, 0.95);
+            border: 1px solid var(--primary-purple);
+            border-radius: 0 0 12px 12px;
+            z-index: 100;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            margin-top: 5px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            animation: slideDown 0.3s ease forwards;
+        }
+
+        .dropdown-content a {
+            color: #ccc;
+            padding: 12px;
+            display: block;
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(179, 102, 255, 0.1);
+        }
+
+        .dropdown-content a:hover {
+            background: var(--primary-purple);
+            color: black;
+        }
+
+        /* Footer */
+        .credit {
+            margin-top: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            opacity: 0.6;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Tablet & Mobile Adjustments */
+        @media (max-width: 600px) {
+            .nav-grid {
+                grid-template-columns: 1fr; /* Satu kolom di HP */
+                padding: 0 10px;
+            }
+            
+            .hero-section {
+                justify-content: flex-start; /* Agar tidak terpotong saat scroll */
+            }
+
+            .main-title {
+                letter-spacing: 2px;
+            }
+        }
+ .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: var(--glass-strong);
+            border: 1px solid var(--primary-purple);
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--primary-purple);
+            color: black;
+            box-shadow: var(--neon-shadow);
+            transform: translateY(-2px);
+        }
+        
+  .back-link {
+            margin-top: 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+        
+ .hacker-btn {
+            background: transparent;
+            color: #39ff14; 
+            border: 2px solid #39ff14;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 5px #39ff14;
+            outline: none;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hacker-btn:hover {
+            box-shadow: 0 0 20px #39ff14;
+            transform: translateY(-3px);
+        }
+
+        .hacker-btn:active {
+            color: #bc13fe; 
+            border-color: #bc13fe;
+            box-shadow: 0 0 30px #bc13fe;
+            transform: scale(0.95);
+        }
+        
+ .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: var(--glass-strong);
+            border: 1px solid var(--primary-purple);
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--primary-purple);
+            color: black;
+            box-shadow: var(--neon-shadow);
+            transform: translateY(-2px);
+        }        
+    </style>
+</head>
+<body>
+ <section class="hero-section">
+        <header class="brand-container">
+            <div class="logo-box">
+              
+<img src="Logo.png" alt="CMD Logo">
+                </a>
+            </div>
+            <h3 id="typing-text" style="min-height: 1.5em; font-size: 1.2rem; color: white;"></h3>
+            <h3 class="main-title"><b>Command Computer Service</b></h3>
+            <p style="color: var(--primary-purple); letter-spacing: 3px; margin-top: 5px;">Solusi Mudah Terpecahkan
+            </p>
+            <br>
+            
+        
+        
+        <canvas id="canvas"></canvas>
+<center>
+    <div class="container">
+        <h1>Dokumentasi Troubleshooting</h1>
+        <div class="btn-container">
+
+            
+            <a href="foto.html" class="hacker-btn">FOTO</a>
+           
+            <a href="video.html" class="hacker-btn">VIDEO</a>
+        </div>
+    </div>
+</header>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789$+-*/=%"\'#&_(),.;:?!\\|{}<>[]^~';
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+
+        const drops = [];
+        for (let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#bc13fe'; 
+            ctx.font = fontSize + 'px arial';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = characters.charAt(Math.floor(Math.random() * characters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        setInterval(draw, 33);
+    </script>
+    </center>
+    
+  <center>
+                <a href="index.html" class="back-btn">Kembali ke Beranda</a>
+            </center>    
+   <footer class="credit"> &copy; Command Computer Service | By . Reza Malik Al Hakim
+        <br>
+         
+        </footer>
+    </section>
+</body>
+</html>
