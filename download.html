@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta name="google-adsense-account" content="ca-pub-8254128571248947">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software Downloads | Page</title>
+    <title> Software Download | Command Computer Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
     
-   
-
-   <style>
+    <style>
         :root {
             --primary-purple: #b366ff;
             --dark-bg: #0a0510;
@@ -16,7 +14,13 @@
             --glass-strong: rgba(179, 102, 255, 0.3);
             --neon-shadow: 0 0 15px rgba(179, 102, 255, 0.5);
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Rajdhani', sans-serif;
             background-color: var(--dark-bg);
@@ -24,6 +28,8 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
+
+        /* Background Fix */
         .hero-section {
             position: relative;
             min-height: 100vh;
@@ -38,16 +44,19 @@
             background-attachment: fixed;
             padding: 40px 20px;
         }
+
+        /* Header & Logo */
         .brand-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             margin-bottom: 40px;
             animation: fadeIn 1.2s ease-out;
-            text-align: center;
         }
+
         .logo-box {
-            width: 100px; height: 100px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             border: 2px solid var(--primary-purple);
             box-shadow: var(--neon-shadow);
@@ -55,14 +64,26 @@
             overflow: hidden;
             background: black;
         }
-        .logo-box img { width: 100%; height: 100%; object-fit: cover; }
+
+        .logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .main-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(1.2rem, 5vw, 2.5rem);
+            font-size: clamp(1.5rem, 5vw, 3rem);
             text-transform: uppercase;
             letter-spacing: 4px;
+            text-align: center;
             text-shadow: 0 0 10px var(--primary-purple);
+            margin-bottom: 10px;
         }
+        
+        
+
+        /* Navigation Grid */
         .nav-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -71,7 +92,9 @@
             max-width: 600px;
             z-index: 10;
         }
+
         .nav-item {
+            position: center;
             background: var(--glass);
             backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -85,41 +108,179 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
         }
+
         .nav-item:hover {
             background: var(--glass-strong);
             border-color: var(--primary-purple);
             transform: translateY(-3px);
             box-shadow: var(--neon-shadow);
         }
-        .dropdown { position: relative; cursor: pointer; }
+
+        /* Dropdown khusus Layanan */
         .dropdown-content {
             display: none;
             position: absolute;
-            top: 100%; left: 0; width: 100%;
+            top: 100%;
+            left: 0;
+            width: 100%;
             background: rgba(15, 5, 25, 0.95);
             border: 1px solid var(--primary-purple);
             border-radius: 0 0 12px 12px;
             z-index: 100;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            margin-top: 5px;
         }
-        .dropdown:hover .dropdown-content { display: block; animation: slideDown 0.3s ease forwards; }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            animation: slideDown 0.3s ease forwards;
+        }
+
         .dropdown-content a {
-            color: #ccc; padding: 12px; display: block;
-            text-decoration: none; font-size: 0.85rem;
-            text-align: left; border-bottom: 1px solid rgba(179, 102, 255, 0.1);
+            color: #ccc;
+            padding: 12px;
+            display: block;
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(179, 102, 255, 0.1);
         }
-        .dropdown-content a:hover { background: var(--primary-purple); color: black; }
-        .credit { margin-top: 50px; font-family: 'Orbitron', sans-serif; font-size: 0.9rem; opacity: 0.6; text-align: center; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-        @media (max-width: 600px) { .nav-grid { grid-template-columns: 1fr; } }
+
+        .dropdown-content a:hover {
+            background: var(--primary-purple);
+            color: black;
+        }
+
+        /* Footer */
+        .credit {
+            margin-top: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            opacity: 0.6;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Tablet & Mobile Adjustments */
+        @media (max-width: 600px) {
+            .nav-grid {
+                grid-template-columns: 1fr; /* Satu kolom di HP */
+                padding: 0 10px;
+            }
+            
+            .hero-section {
+                justify-content: flex-start; /* Agar tidak terpotong saat scroll */
+            }
+
+            .main-title {
+                letter-spacing: 2px;
+            }
+        }
+ .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: var(--glass-strong);
+            border: 1px solid var(--primary-purple);
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--primary-purple);
+            color: black;
+            box-shadow: var(--neon-shadow);
+            transform: translateY(-2px);
+        }
+        
+  .back-link {
+            margin-top: 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+        
+ .hacker-btn {
+            background: transparent;
+            color: #39ff14; 
+            border: 2px solid #39ff14;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 5px #39ff14;
+            outline: none;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hacker-btn:hover {
+            box-shadow: 0 0 20px #39ff14;
+            transform: translateY(-3px);
+        }
+
+        .hacker-btn:active {
+            color: #bc13fe; 
+            border-color: #bc13fe;
+            box-shadow: 0 0 30px #bc13fe;
+            transform: scale(0.95);
+        }
+        
+ .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: var(--glass-strong);
+            border: 1px solid var(--primary-purple);
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--primary-purple);
+            color: black;
+            box-shadow: var(--neon-shadow);
+            transform: translateY(-2px);
+        }
+            .adnotif {
+              text-decoration: none;
+              color:red;
+            }
+            
+        }        
     </style>
 </head>
 <body>
-
-<section class="hero-section">
+ <section class="hero-section">
         <header class="brand-container">
-            <a href="index.html">
+          <a href="index.html">
             <div class="logo-box">
               
 <img src="Logo.png" alt="CMD Logo">
@@ -131,21 +292,29 @@
             </p>
             <br>
             
-        </header>
-    
-    <canvas id="canvas"></canvas>
-
+        
+        
+        <canvas id="canvas"></canvas>
+<center>
     <div class="container">
-        <h1>SOFTWARE DOWNLOADS</h1>
+        <h1>Software Download</h1>
+        <h3>Silahkan pilih software</h3>
+        <div class="adnotif">
+        <h4>Link download akan terbuka setelah skip iklan</h4>
+        </div>
         <div class="btn-container">
-            <a href="index.html" class="hacker-btn"><span>&#8592;</span> Beranda</a>
+
             
-            <a href="https://drive.google.com/drive/folders/14n1xRgwTYc4en2LkJhc8BmZs27jyS0qi?usp=drive_link" class="hacker-btn">Ms.Office</a>
-            <a href="https://drive.google.com/drive/folders/1mMXOvWFMbkUwZAEMSSA-gqSeZ2vzekgW?usp=drive_link" class="hacker-btn">Activator</a>
-            <a href="https://drive.google.com/drive/folders/1VPW8LQ3rTaOjvBHIUqT_aYm4ajINq4KJ?usp=sharing" class="hacker-btn">Update Blocker</a>
+            <a href="https://drive.google.com/drive/folders/1mMXOvWFMbkUwZAEMSSA-gqSeZ2vzekgW" class="hacker-btn">Activator Windows</a>
+           
+            <a href="https://drive.google.com/file/d/1Zw6ZHfHLPX_nMOcFBMnsJvC9RFFkAMIv/view?usp=drivesdk" class="hacker-btn">Ms.Office</a>
+            
+ <a href="https://drive.google.com/drive/folders/1VPW8LQ3rTaOjvBHIUqT_aYm4ajINq4KJ" class="hacker-btn">Update Blocker</a>
+            
+            
         </div>
     </div>
-
+</header>
     <script>
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
@@ -187,6 +356,15 @@
 
         setInterval(draw, 33);
     </script>
-</section>
+    </center>
+    
+  <center>
+                <a href="index.html" class="back-btn">Kembali ke Beranda</a>
+            </center>    
+   <footer class="credit"> &copy; Command Computer Service | By . Reza Malik Al Hakim
+        <br>
+         
+        </footer>
+    </section>
 </body>
 </html>
