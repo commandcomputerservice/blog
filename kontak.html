@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta name="google-adsense-account" content="ca-pub-8254128571248947">
+    <meta name="google-adsense-account" content="ca-pub-8254128571248947">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontak - Command Computer Service</title>
+    <title>Kontak Kami - Command Computer Service</title>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
     
@@ -24,168 +25,173 @@
             background-color: var(--dark-bg);
             color: white;
             line-height: 1.6;
-            overflow-x: hidden;
+            background-image: radial-gradient(circle at 50% 50%, #1a0b2e 0%, #0a0510 100%);
         }
 
-        .hero-section {
-            position: relative;
-            min-height: 100vh;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: linear-gradient(rgba(10, 5, 16, 0.8), rgba(10, 5, 16, 0.8)), 
-                        url('Banner.jpg') no-repeat center center;
-            background-size: cover;
-            padding: 40px 20px;
+        /* Navbar */
+        nav {
+            padding: 20px;
+            text-align: center;
+            background: rgba(0,0,0,0.5);
+            border-bottom: 1px solid var(--primary-purple);
         }
-
-        .brand-container { text-align: center; margin-bottom: 30px; }
-
-        .logo-box {
-            width: 100px; height: 100px; margin: 0 auto 15px;
-            border-radius: 50%; border: 2px solid var(--primary-purple);
-            overflow: hidden; background: black; box-shadow: var(--neon-shadow);
-        }
-
-        .logo-box img { width: 100%; height: 100%; object-fit: cover; }
-
-        .main-title {
-            font-family: 'Orbitron', sans-serif; font-size: 2rem;
-            text-transform: uppercase; letter-spacing: 4px;
-            text-shadow: 0 0 10px var(--primary-purple);
-        }
-
-        .contact-container {
-            width: 100%; max-width: 600px; /* Ukuran diperlebar sedikit untuk peta */
-            background: var(--glass); backdrop-filter: blur(10px);
-            padding: 30px; border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        }
-
-        .form-group { margin-bottom: 20px; }
-
-        .form-group label {
-            display: block; margin-bottom: 8px;
-            font-family: 'Orbitron', sans-serif; font-size: 0.8rem;
-            color: var(--primary-purple);
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%; padding: 12px; background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(179, 102, 255, 0.3);
-            border-radius: 8px; color: white; font-size: 1rem;
-        }
-
-        .btn-submit {
-            width: 100%; padding: 15px; background: #25d366;
-            border: none; border-radius: 8px; color: white;
-            font-family: 'Orbitron', sans-serif; font-weight: bold;
-            cursor: pointer; transition: 0.3s; display: block;
-            text-align: center; text-decoration: none;
-        }
-
-        .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4); }
-
-        /* Map Styling */
-        .map-container {
-            margin-top: 30px; border-radius: 12px; overflow: hidden;
-            border: 1px solid var(--primary-purple); box-shadow: var(--neon-shadow);
-        }
-
-        .map-container iframe { width: 100%; height: 250px; border: none; display: block; }
-
-        /* Social Media Styling */
-        .social-media-container { margin-top: 30px; text-align: center; }
-        .social-media-container h3 {
-            font-family: 'Orbitron', sans-serif; font-size: 0.9rem;
-            margin-bottom: 15px; color: var(--primary-purple);
-        }
-
-        .social-icons { display: flex; justify-content: center; gap: 20px; }
-        .social-icon {
-            width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;
-            background: var(--glass); border: 1px solid var(--primary-purple);
-            border-radius: 50%; color: white; font-size: 1.2rem; transition: 0.3s;
-        }
-
-        .social-icon:hover {
-            background: var(--primary-purple); color: black;
-            transform: translateY(-5px); box-shadow: var(--neon-shadow);
-        }
-
- .back-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
-            background: var(--glass-strong);
-            border: 1px solid var(--primary-purple);
-            border-radius: 8px;
+        nav a {
             color: white;
             text-decoration: none;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+            margin: 0 15px;
+            font-family: 'Orbitron';
+            font-size: 0.8rem;
+            transition: 0.3s;
         }
-        .back-btn { margin-top: 25px; color: white; text-decoration: none; font-family: 'Orbitron'; font-size: 0.8rem; opacity: 0.7; }
-        .back-btn:hover { color: var(--primary-purple); opacity: 1; }
+        nav a:hover { color: var(--primary-purple); text-shadow: var(--neon-shadow); }
 
-        .credit { margin-top: 40px; font-size: 0.8rem; opacity: 0.5; text-align: center; }
+        .container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 850px) {
+            .container { grid-template-columns: 1fr; }
+        }
+
+        h1, h2, h3 { font-family: 'Orbitron'; color: var(--primary-purple); margin-bottom: 20px; }
+
+        /* Left Side: Contact Info */
+        .contact-info {
+            background: var(--glass);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-strong);
+        }
+        .info-item { display: flex; align-items: center; margin-bottom: 20px; }
+        .info-item i { font-size: 1.5rem; margin-right: 15px; color: var(--primary-purple); }
+
+        /* Right Side: Form */
+        .contact-form {
+            background: var(--glass);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-strong);
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--glass-strong);
+            color: white;
+            border-radius: 8px;
+            font-family: 'Rajdhani';
+        }
+        .btn-wa {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #25d366;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-wa:hover { transform: scale(1.02); box-shadow: 0 0 15px rgba(37, 211, 102, 0.5); }
+
+        /* Map */
+        .map-container {
+            margin-top: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--primary-purple);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid var(--glass-strong);
+            margin-top: 50px;
+            font-size: 0.9rem;
+        }
+        .legal-links { margin-top: 10px; }
+        .legal-links a { color: var(--primary-purple); text-decoration: none; margin: 0 10px; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-    <section class="hero-section">
-        <header class="brand-container">
-            <a href="index.html">
-            <div class="logo-box">
-                <img src="Logo.png" alt="CMD Logo">
-            </a>
-            </div>
-            <h1 class="main-title">Hubungi Kami</h1>
-            <p style="color: var(--primary-purple); letter-spacing: 2px;">Solusi Mudah Terpecahkan</p>
-          
-        </header>
+    <nav>
+        <a href="index.html">BERANDA</a>
+        <a href="about.html">TENTANG</a>
+        <a href="solusi.html">SOLUSI IT</a>
+        <a href="kontak.html" style="color:var(--primary-purple)">KONTAK</a>
+    </nav>
 
-        <div class="contact-container">
-            <form action="#">
-                <div class="form-group">
-                    <label>NAMA LENGKAP</label>
-                    <input type="text" placeholder="Masukkan nama Anda..." required>
+    <div class="container">
+        <div class="contact-info">
+            <h2>HUBUNGI KAMI</h2>
+            <p style="margin-bottom: 30px;">Butuh perbaikan cepat atau konsultasi IT? Kami siap membantu Anda di workshop atau melalui layanan remote.</p>
+            
+            <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <strong>Alamat:</strong><br>
+                    Jl. Veteran No. 123, Purwakarta, Jawa Barat
                 </div>
-                <div class="form-group">
-                    <label>PESAN / KELUHAN</label>
-                    <textarea rows="3" placeholder="Ceritakan masalah komputer Anda..." required></textarea>
-                </div>
-                <a href="https://wa.me/082122321195" target="_blank" class="btn-submit">
-                    <i class="fab fa-whatsapp"></i> Kirim Pesan via WhatsApp
-                </a>
-            </form>
-
-            <div class="map-container">
-            <div class="map-container">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7927.199354731249!2d107.4544859!3d-6.5721019!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e690fb683539b69%3A0xbaf1e249c9a10d4a!2sCommand%20Computer%20Service!5e0!3m2!1sid!2sid!4v1771487929859!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</div>
             </div>
 
-            <div class="social-media-container">
-                <h3>IKUTI KAMI</h3>
-                <div class="social-icons">
-                    <a href="https://instagram.com/_reza1996ma_" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/commandcomputerservice/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.youtube.com/@rezamalikalhakim?sub_confirmation=1" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <strong>Email:</strong><br>
+                    support@commandcomputerservice.my.id
                 </div>
+            </div>
+
+            <div class="info-item">
+                <i class="fab fa-instagram"></i>
+                <div>
+                    <strong>Instagram:</strong><br>
+                    @_reza1996ma_
+                </div>
+            </div>
+
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126906.5168449!2d107.3752528!3d-6.533201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e690e6080236a57%3A0x401e54473341490!2sPurwakarta%2C%20Purwakarta%20Regency%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" 
+                    width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
             </div>
         </div>
 
-        <a href="index.html" class="back-btn">Kembali ke Beranda</a>
+        <div class="contact-form">
+            <h3>KIRIM PESAN</h3>
+            <form>
+                <input type="text" placeholder="Nama Lengkap" required>
+                <input type="email" placeholder="Alamat Email" required>
+                <textarea rows="5" placeholder="Jelaskan kendala perangkat Anda (Contoh: Laptop mati total / Printer paper jam)"></textarea>
+                
+                <a href="https://wa.me/6281234567890?text=Halo%20Command%20Computer%20Service,%20saya%20ingin%20konsultasi" class="btn-wa">
+                    <i class="fab fa-whatsapp"></i> HUBUNGI VIA WHATSAPP
+                </a>
+            </form>
+            <p style="font-size: 0.8rem; margin-top: 15px; opacity: 0.7; text-align: center;">
+                *Respon cepat pada jam kerja: 08:00 - 20:00 WIB
+            </p>
+        </div>
+    </div>
 
-        <footer class="credit">
-          &copy; Command Computer Service | By . Reza Malik Al Hakim
-        </footer>
-    </section>
+    <footer>
+        &copy; 2024 Command Computer Service | By Reza Malik Al Hakim
+        <div class="legal-links">
+            <a href="privacy.html">Privacy Policy</a> | 
+            <a href="terms.html">Terms & Conditions</a> | 
+            <a href="disclaimer.html">Disclaimer</a>
+        </div>
+    </footer>
 
-    <script src="floating-chat.js"></script>
 </body>
 </html>
