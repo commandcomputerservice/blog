@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Software Download | Command Computer Service</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
-    
-    <style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
         :root {
             --primary-purple: #b366ff;
             --dark-bg: #0a0510;
@@ -273,11 +275,191 @@
               text-decoration: none;
               color:red;
             }
-            
+            /* Navigasi Styles */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--glass-strong);
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+/* Efek Hover Navigasi */
+.navbar a:hover {
+    color: var(--primary-purple);
+    background: rgba(179, 102, 255, 0.1);
+    border: 1px solid var(--primary-purple);
+    box-shadow: var(--neon-shadow);
+    transform: translateY(-2px);
+}
+
+.navbar a.active {
+    border-bottom: 2px solid var(--primary-purple);
+    color: var(--primary-purple);
+}
         }        
     </style>
 </head>
 <body>
+   
+<nav class="main-nav">
+    <div class="nav-wrapper">
+        <a href="index.html" class="home-icon">
+            <i class="fas fa-home"></i>
+        </a>
+
+        <div class="nav-dropdown">
+            <button class="drop-btn" onclick="toggleMenu()">
+                MENU <i class="fas fa-chevron-down"></i>
+            </button>
+            <div id="dropdownContent" class="dropdown-items">
+                <a href="about.html">TENTANG</a>
+                <a href="solusi.html">SOLUSI IT</a>
+                <a href="download.html">SOFTWARE</a>
+                <a href="kontak.html">KONTAK</a>
+                <a href="kebijakan.html">PRIVASI</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<style>
+    /* CSS Navigasi Dropdown */
+    .main-nav {
+        background: rgba(10, 5, 16, 0.95);
+        border-bottom: 2px solid var(--primary-purple);
+        position: sticky;
+        top: 0;
+        z-index: 9999;
+        padding: 10px 20px;
+        backdrop-filter: blur(10px);
+    }
+
+    .nav-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .home-icon {
+        color: white;
+        font-size: 1.5rem;
+        transition: 0.3s;
+        text-shadow: var(--neon-shadow);
+    }
+
+    .home-icon:hover {
+        color: var(--primary-purple);
+        transform: scale(1.1);
+    }
+
+    .nav-dropdown {
+        position: relative;
+    }
+
+    .drop-btn {
+        background: var(--glass);
+        color: white;
+        border: 1px solid var(--primary-purple);
+        padding: 8px 20px;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 0.8rem;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: 0.3s;
+        box-shadow: var(--neon-shadow);
+    }
+
+    .drop-btn:hover {
+        background: var(--primary-purple);
+        color: black;
+    }
+
+    .dropdown-items {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 110%;
+        background: #0a0510;
+        min-width: 180px;
+        border: 1px solid var(--primary-purple);
+        border-radius: 8px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+        overflow: hidden;
+    }
+
+    .dropdown-items a {
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        font-family: 'Rajdhani', sans-serif;
+        font-weight: 600;
+        border-bottom: 1px solid rgba(179, 102, 255, 0.1);
+        transition: 0.3s;
+    }
+
+    .dropdown-items a:hover {
+        background: var(--glass);
+        color: var(--primary-purple);
+        padding-left: 25px;
+    }
+
+    /* Tampilkan Dropdown */
+    .show {
+        display: block !important;
+        animation: slideDown 0.3s ease-out;
+    }
+
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsif Smartphone */
+    @media (max-width: 600px) {
+        .main-nav { padding: 8px 15px; }
+        .drop-btn { padding: 6px 15px; font-size: 0.7rem; }
+    }
+</style>
+
+<script>
+    /* Fungsi Toggle Dropdown */
+    function toggleMenu() {
+        document.getElementById("dropdownContent").classList.toggle("show");
+    }
+
+    /* Tutup dropdown jika user klik di luar menu */
+    window.onclick = function(event) {
+        if (!event.target.matches('.drop-btn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-items");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>
  <section class="hero-section">
         <header class="brand-container">
           <a href="index.html">
@@ -295,7 +477,7 @@
         
         
         <canvas id="canvas"></canvas>
-<center>
+<div style="text-align: center;">
     <div class="container">
         <h1>Software Download</h1>
         <h3>Silahkan pilih software</h3>
@@ -358,11 +540,11 @@
 
         setInterval(draw, 33);
     </script>
-    </center>
+    </div>
     
-  <center>
+  <div style="text-align: center;">
                 <a href="index.html" class="back-btn">Kembali ke Beranda</a>
-            </center>    
+          </div>    
    <footer class="credit"> &copy; Command Computer Service | By . Reza Malik Al Hakim
         <br>
          
