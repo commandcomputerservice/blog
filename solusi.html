@@ -10,8 +10,10 @@
 
     <title>Solusi IT - Command Computer Service</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
-    
-    <style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
         :root {
             --primary-purple: #b366ff;
             --dark-bg: #0a0510;
@@ -215,9 +217,190 @@
             .modal-content { padding: 25px; }
             .main-title { font-size: 1.6rem; }
         }
+        /* Navigasi Styles */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--glass-strong);
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+/* Efek Hover Navigasi */
+.navbar a:hover {
+    color: var(--primary-purple);
+    background: rgba(179, 102, 255, 0.1);
+    border: 1px solid var(--primary-purple);
+    box-shadow: var(--neon-shadow);
+    transform: translateY(-2px);
+}
+
+.navbar a.active {
+    border-bottom: 2px solid var(--primary-purple);
+    color: var(--primary-purple);
+}
     </style>
 </head>
 <body>
+   
+<nav class="main-nav">
+    <div class="nav-wrapper">
+        <a href="index.html" class="home-icon">
+            <i class="fas fa-home"></i>
+        </a>
+
+        <div class="nav-dropdown">
+            <button class="drop-btn" onclick="toggleMenu()">
+                MENU <i class="fas fa-chevron-down"></i>
+            </button>
+            <div id="dropdownContent" class="dropdown-items">
+                <a href="about.html">TENTANG</a>
+                <a href="solusi.html">SOLUSI IT</a>
+                <a href="download.html">SOFTWARE</a>
+                <a href="kontak.html">KONTAK</a>
+                <a href="kebijakan.html">PRIVASI</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<style>
+    /* CSS Navigasi Dropdown */
+    .main-nav {
+        background: rgba(10, 5, 16, 0.95);
+        border-bottom: 2px solid var(--primary-purple);
+        position: sticky;
+        top: 0;
+        z-index: 9999;
+        padding: 10px 20px;
+        backdrop-filter: blur(10px);
+    }
+
+    .nav-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .home-icon {
+        color: white;
+        font-size: 1.5rem;
+        transition: 0.3s;
+        text-shadow: var(--neon-shadow);
+    }
+
+    .home-icon:hover {
+        color: var(--primary-purple);
+        transform: scale(1.1);
+    }
+
+    .nav-dropdown {
+        position: relative;
+    }
+
+    .drop-btn {
+        background: var(--glass);
+        color: white;
+        border: 1px solid var(--primary-purple);
+        padding: 8px 20px;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 0.8rem;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: 0.3s;
+        box-shadow: var(--neon-shadow);
+    }
+
+    .drop-btn:hover {
+        background: var(--primary-purple);
+        color: black;
+    }
+
+    .dropdown-items {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 110%;
+        background: #0a0510;
+        min-width: 180px;
+        border: 1px solid var(--primary-purple);
+        border-radius: 8px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+        overflow: hidden;
+    }
+
+    .dropdown-items a {
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        font-family: 'Rajdhani', sans-serif;
+        font-weight: 600;
+        border-bottom: 1px solid rgba(179, 102, 255, 0.1);
+        transition: 0.3s;
+    }
+
+    .dropdown-items a:hover {
+        background: var(--glass);
+        color: var(--primary-purple);
+        padding-left: 25px;
+    }
+
+    /* Tampilkan Dropdown */
+    .show {
+        display: block !important;
+        animation: slideDown 0.3s ease-out;
+    }
+
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsif Smartphone */
+    @media (max-width: 600px) {
+        .main-nav { padding: 8px 15px; }
+        .drop-btn { padding: 6px 15px; font-size: 0.7rem; }
+    }
+</style>
+
+<script>
+    /* Fungsi Toggle Dropdown */
+    function toggleMenu() {
+        document.getElementById("dropdownContent").classList.toggle("show");
+    }
+
+    /* Tutup dropdown jika user klik di luar menu */
+    window.onclick = function(event) {
+        if (!event.target.matches('.drop-btn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-items");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>
 <section class="hero-section">
         <header class="brand-container">
              <a href="index.html">
@@ -239,7 +422,7 @@
                 <div>
                   <h2>PERSIAPAN SEBELUM INSTAL DRIVER</h2>
                     <p class="summary-text">
-                      <img src="L3210.jpg" width="100%" Height="100%">Setelah membeli produk Epson Printer & Scanner type L3210 Series  ini kalian bingung harus bagaimana langkah selanjutnya meskipun manual book / buku panduan tersedia di dalam kardus printer, banyak hal yang...</p>
+                      <img src="L3210.jpg" alt="printer epson l3210" width="100%" Height="100%">Setelah membeli produk Epson Printer & Scanner type L3210 Series  ini kalian bingung harus bagaimana langkah selanjutnya meskipun manual book / buku panduan tersedia di dalam kardus printer, banyak hal yang...</p>
                 </div>
                 <button class="btn-read-more" onclick="openModal('art1')">BACA SELENGKAPNYA</button>
             </div>
@@ -257,7 +440,7 @@
                 <div>
                     <h2>Panduan Cepat Setting Jaringan Lokal Peer-to-Peer (P2P)</h2>
                     <p class="summary-text">
-                      <img src="LAN.jpg" width="100%" height="100%">Jaringan lokal **peer-to-peer (P2P)** merupakan arsitektur jaringan yang paling sederhana. Ia memungkinkan beberapa komputer untuk saling terhubung dan berbagi sumber daya seperti file dan printer ...</p>
+                      <img src="LAN.jpg" alt="LAN" width="100%" height="100%">Jaringan lokal **peer-to-peer (P2P)** merupakan arsitektur jaringan yang paling sederhana. Ia memungkinkan beberapa komputer untuk saling terhubung dan berbagi sumber daya seperti file dan printer ...</p>
                 </div>
                 <button class="btn-read-more" onclick="openModal('art3')">BACA SELENGKAPNYA</button>
             </div>
@@ -266,7 +449,7 @@
                 <div>
                     <h2>Meningkatkan Performa Komputer Anda</h2>
                     <p class="summary-text">
-                      <img src="performa.jpg" width="100%" height="100%">Seiring berjalannya waktu, komputer lama seringkali mengalami penurunan performa yang signifikan...</p>
+                      <img src="performa.jpg" alt="performa" width="100%" height="100%">Seiring berjalannya waktu, komputer lama seringkali mengalami penurunan performa yang signifikan...</p>
                 </div>
                 <button class="btn-read-more" onclick="openModal('art4')">BACA SELENGKAPNYA</button>
             </div>
@@ -275,7 +458,7 @@
                 <div>
                     <h2>Cara Menonaktifkan System Windows Update</h2>
                     <p class="summary-text">
-                      <img src="Windows-update.jpg" width="100%" height="100%">Seringkali  kita menemukan kasus hal seperti ini pada saat  kita akan menekan tombol  Shutdown , Restart , ataupun Sleep tidak ada pilihan apapun kalau udah terlanjur seperti ini karena ...</p>
+                      <img src="Windows-update.jpg" alt="Windows-update" width="100%" height="100%">Seringkali  kita menemukan kasus hal seperti ini pada saat  kita akan menekan tombol  Shutdown , Restart , ataupun Sleep tidak ada pilihan apapun kalau udah terlanjur seperti ini karena ...</p>
                 </div>
                 <button class="btn-read-more" onclick="openModal('art5')">BACA SELENGKAPNYA</button>
             </div>
@@ -284,7 +467,7 @@
                 <div>
                     <h2>Troubleshooting Connection Ethernet & Wifi</h2>
                     <p class="summary-text">
-                      <img src="ethernet.png" width="100%" height="100%">Disetiap komputer / PC / Laptop terdapat beberapa jenis pengkoneksian jaringan internet sesuai kebutuhan dan sesuai dengan spesifikasi yang mendukung pada perangkat komputer kalian yang paling sering digunakan oleh para pengguna komputer diantaranya  ...</p>
+                      <img src="ethernet.png" alt="ethernet" width="100%" height="100%">Disetiap komputer / PC / Laptop terdapat beberapa jenis pengkoneksian jaringan internet sesuai kebutuhan dan sesuai dengan spesifikasi yang mendukung pada perangkat komputer kalian yang paling sering digunakan oleh para pengguna komputer diantaranya  ...</p>
                 </div>
                 <button class="btn-read-more" onclick="openModal('art6')">BACA SELENGKAPNYA</button>
             </div>
@@ -635,7 +818,7 @@ Kalian bisa mendapatkan settingannya pada layar utama desktop sebelah kanan bawa
 <br>
 <img src="ntw3.jpg" width="100%" height="100%">
 <br>
-<center>Selamat Mencoba</center>
+<div style="text-align: center;">Selamat Mencoba</div>
 </ol>
 </p>
                 <br>
@@ -672,7 +855,7 @@ Langkah-langkah analisa :
 <li>Apabila semua sudah dicoba tetapi masih tidak berhasil maka kemungkinan dari jalur VGA menuju display terjadi short atau konslet.</p>
 <br>
 </ol>
-<center> Selamat Mencoba </center>
+<div style="text-align: center;"> Selamat Mencoba </div>
             `
                 },
                  art8: {
@@ -700,7 +883,7 @@ Setelah mengatur perizinan security nya, kemudian buka File "Host" kemudian modi
 <br>
 Hapus semua Dns yang tercantum pada host , pilih seperti misal "www.youtube.com" kemudian anda dapat menghapus alamat tersebut agar akses ke situs tersebut terbuka.
 <br>
-<center> Selamat Mencoba </center>
+<div style="text-align: center;"> Selamat Mencoba </div>
 </p>
                 
             `
@@ -731,7 +914,7 @@ Solusinya agar penggunaan WIFI pada Laptop / PC dapat dijangkau dengan baik seti
 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBbQj6aSg3kCJYCtRk3DxytSf3jpwClKF94qt3TA3qEQk6zJ1GmGRwpKFJy31SmxsRe4j2i7ebrZY3W6IskrlMlvZiZQMxruRzX5H86AywSW9FhwOiU8hWGkYIN3KrjfIay_iI7P4-NBjdPOo3j6DS6g750LS_OCa4A8otkVgrg1zYQatiPMvIlfwiNfM/w601-h398-rw/Screenshot%20(68).png" width="100%" height="100%">
 Lihat setelah di rubah menjadi "Maximum Performance" , maka sinyal WIFI Laptop atau PC semula hanya satu sinyal atau dua sinyal, dan perbedaan setelah dirubah akan menjadi terjangkau full setidaknya tidak terlalu parah kan.
 <br>
-<center> Selamat Mencoba </center>
+<div style="text-align: center;"> Selamat Mencoba </div>
 </p>
                 <br>
             `
