@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Software Download | Command Computer Service</title>
+    <title>Software & Documentation - Command Computer Service</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<style>
+    
+    <style>
         :root {
             --primary-purple: #b366ff;
             --dark-bg: #0a0510;
@@ -17,538 +17,166 @@
             --neon-shadow: 0 0 15px rgba(179, 102, 255, 0.5);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Rajdhani', sans-serif;
             background-color: var(--dark-bg);
             color: white;
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
-        /* Background Fix */
-        .hero-section {
-            position: relative;
-            min-height: 100vh;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(rgba(10, 5, 16, 0.8), rgba(10, 5, 16, 0.8)), 
-                        url('Banner.jpg') no-repeat center center;
-            background-size: cover;
-            background-attachment: fixed;
-            padding: 40px 20px;
+        /* Navigasi Dropdown */
+        .main-nav {
+            background: rgba(10, 5, 16, 0.95);
+            border-bottom: 2px solid var(--primary-purple);
+            position: sticky; top: 0; z-index: 9999;
+            padding: 10px 20px; backdrop-filter: blur(10px);
         }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+        .home-icon { color: white; font-size: 1.5rem; text-shadow: var(--neon-shadow); text-decoration: none; }
+        .drop-btn {
+            background: var(--glass); color: white; border: 1px solid var(--primary-purple);
+            padding: 8px 20px; font-family: 'Orbitron', sans-serif; cursor: pointer; border-radius: 5px; box-shadow: var(--neon-shadow);
+        }
+        .dropdown-items {
+            display: none; position: absolute; right: 0; top: 110%;
+            background: #0a0510; min-width: 180px; border: 1px solid var(--primary-purple); border-radius: 8px;
+        }
+        .dropdown-items a { color: white; padding: 12px 16px; text-decoration: none; display: block; border-bottom: 1px solid rgba(179, 102, 255, 0.1); }
+        .show { display: block !important; }
 
-        /* Header & Logo */
-        .brand-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 40px;
-            animation: fadeIn 1.2s ease-out;
-        }
-
-        .logo-box {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 2px solid var(--primary-purple);
-            box-shadow: var(--neon-shadow);
-            margin-bottom: 20px;
-            overflow: hidden;
-            background: black;
-        }
-
-        .logo-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .main-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(1.5rem, 5vw, 3rem);
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            text-align: center;
-            text-shadow: 0 0 10px var(--primary-purple);
-            margin-bottom: 10px;
-        }
+        /* Content Styles */
+        .container { max-width: 1000px; margin: 40px auto; padding: 20px; }
         
-        
-
-        /* Navigation Grid */
-        .nav-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            width: 100%;
-            max-width: 600px;
-            z-index: 10;
+        .hero-title {
+            text-align: center; margin-bottom: 50px;
         }
+        .hero-title h1 { font-family: 'Orbitron'; color: var(--primary-purple); font-size: 2rem; text-shadow: var(--neon-shadow); }
+        .hero-title p { opacity: 0.7; font-size: 1.1rem; margin-top: 10px; }
 
-        .nav-item {
-            position: center;
+        /* Gallery Shortcut Section */
+        .gallery-access {
+            display: flex; gap: 20px; justify-content: center; margin-bottom: 60px; flex-wrap: wrap;
+        }
+        .btn-gallery {
             background: var(--glass);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            text-decoration: none;
-            color: white;
-            padding: 15px;
-            font-weight: 600;
-            text-align: center;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
+            border: 2px solid var(--primary-purple);
+            color: white; padding: 15px 30px;
+            font-family: 'Orbitron'; font-size: 0.9rem;
+            text-decoration: none; border-radius: 10px;
+            transition: 0.3s; box-shadow: var(--neon-shadow);
+            display: flex; align-items: center; gap: 10px;
         }
+        .btn-gallery:hover { background: var(--primary-purple); color: black; transform: scale(1.05); }
 
-        .nav-item:hover {
-            background: var(--glass-strong);
-            border-color: var(--primary-purple);
-            transform: translateY(-3px);
-            box-shadow: var(--neon-shadow);
+        /* Software Grid */
+        .software-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
         }
-
-        /* Dropdown khusus Layanan */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background: rgba(15, 5, 25, 0.95);
-            border: 1px solid var(--primary-purple);
-            border-radius: 0 0 12px 12px;
-            z-index: 100;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            margin-top: 5px;
+        .sw-card {
+            background: var(--glass); border: 1px solid var(--glass-strong);
+            padding: 25px; border-radius: 15px; transition: 0.3s;
         }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-            animation: slideDown 0.3s ease forwards;
-        }
-
-        .dropdown-content a {
-            color: #ccc;
-            padding: 12px;
-            display: block;
-            text-decoration: none;
-            font-size: 0.85rem;
-            text-align: left;
-            border-bottom: 1px solid rgba(179, 102, 255, 0.1);
-        }
-
-        .dropdown-content a:hover {
-            background: var(--primary-purple);
-            color: black;
-        }
-
-        /* Footer */
-        .credit {
-            margin-top: 50px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            opacity: 0.6;
-            text-align: center;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Tablet & Mobile Adjustments */
-        @media (max-width: 600px) {
-            .nav-grid {
-                grid-template-columns: 1fr; /* Satu kolom di HP */
-                padding: 0 10px;
-            }
-            
-            .hero-section {
-                justify-content: flex-start; /* Agar tidak terpotong saat scroll */
-            }
-
-            .main-title {
-                letter-spacing: 2px;
-            }
-        }
- .back-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
-            background: var(--glass-strong);
-            border: 1px solid var(--primary-purple);
-            border-radius: 8px;
-            color: white;
-            text-decoration: none;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-
-        .back-btn:hover {
-            background: var(--primary-purple);
-            color: black;
-            box-shadow: var(--neon-shadow);
-            transform: translateY(-2px);
-        }
+        .sw-card:hover { border-color: var(--primary-purple); box-shadow: var(--neon-shadow); transform: translateY(-5px); }
+        .sw-card i { font-size: 2.5rem; color: var(--primary-purple); margin-bottom: 15px; }
+        .sw-card h3 { font-family: 'Orbitron'; margin-bottom: 10px; font-size: 1.1rem; color: var(--primary-purple); }
+        .sw-card p { font-size: 0.9rem; opacity: 0.8; margin-bottom: 20px; height: 60px; overflow: hidden; }
         
-  .back-link {
-            margin-top: 20px;
-            color: white;
-            text-decoration: none;
-            font-size: 0.9rem;
-            opacity: 0.7;
+        .btn-dl {
+            display: inline-block; width: 100%; text-align: center;
+            background: transparent; border: 1px solid var(--primary-purple);
+            color: white; padding: 10px; border-radius: 5px;
+            text-decoration: none; font-family: 'Orbitron'; font-size: 0.8rem;
             transition: 0.3s;
         }
-        
- .hacker-btn {
-            background: transparent;
-            color: #39ff14; 
-            border: 2px solid #39ff14;
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 5px #39ff14;
-            outline: none;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
+        .btn-dl:hover { background: var(--primary-purple); color: black; }
 
-        .hacker-btn:hover {
-            box-shadow: 0 0 20px #39ff14;
-            transform: translateY(-3px);
-        }
-
-        .hacker-btn:active {
-            color: #bc13fe; 
-            border-color: #bc13fe;
-            box-shadow: 0 0 30px #bc13fe;
-            transform: scale(0.95);
-        }
-        
- .back-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
-            background: var(--glass-strong);
-            border: 1px solid var(--primary-purple);
-            border-radius: 8px;
-            color: white;
-            text-decoration: none;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-
-        .back-btn:hover {
-            background: var(--primary-purple);
-            color: black;
-            box-shadow: var(--neon-shadow);
-            transform: translateY(-2px);
-        }
-            .adnotif {
-              text-decoration: none;
-              color:red;
-            }
-            /* Navigasi Styles */
-.navbar {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-    background: var(--glass);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid var(--glass-strong);
-}
-
-.navbar a {
-    color: white;
-    text-decoration: none;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.9rem;
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    border: 1px solid transparent;
-}
-
-/* Efek Hover Navigasi */
-.navbar a:hover {
-    color: var(--primary-purple);
-    background: rgba(179, 102, 255, 0.1);
-    border: 1px solid var(--primary-purple);
-    box-shadow: var(--neon-shadow);
-    transform: translateY(-2px);
-}
-
-.navbar a.active {
-    border-bottom: 2px solid var(--primary-purple);
-    color: var(--primary-purple);
-}
-        }        
+        .footer { text-align: center; padding: 50px; opacity: 0.5; font-size: 0.8rem; font-family: 'Orbitron'; }
     </style>
 </head>
 <body>
-   
-<nav class="main-nav">
-    <div class="nav-wrapper">
-        <a href="index.html" class="home-icon">
-            <i class="fas fa-home"></i>
-        </a>
 
-        <div class="nav-dropdown">
-            <button class="drop-btn" onclick="toggleMenu()">
-                MENU <i class="fas fa-chevron-down"></i>
-            </button>
-            <div id="dropdownContent" class="dropdown-items">
-                <a href="about.html">TENTANG</a>
-                <a href="solusi.html">SOLUSI IT</a>
-                <a href="download.html">SOFTWARE</a>
-                <a href="kontak.html">KONTAK</a>
-                <a href="kebijakan.html">PRIVASI</a>
+    <nav class="main-nav">
+        <div class="nav-wrapper">
+            <a href="index.html" class="home-icon"><i class="fas fa-home"></i></a>
+            <div style="position: relative;">
+                <button class="drop-btn" onclick="toggleMenu()">MENU <i class="fas fa-chevron-down"></i></button>
+                <div id="dropdownContent" class="dropdown-items">
+                    <a href="about.html">TENTANG</a>
+                    <a href="solusi.html">SOLUSI IT</a>
+                    <a href="download.html">SOFTWARE</a>
+                    <a href="kontak.html">KONTAK</a>
+                </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<style>
-    /* CSS Navigasi Dropdown */
-    .main-nav {
-        background: rgba(10, 5, 16, 0.95);
-        border-bottom: 2px solid var(--primary-purple);
-        position: sticky;
-        top: 0;
-        z-index: 9999;
-        padding: 10px 20px;
-        backdrop-filter: blur(10px);
-    }
-
-    .nav-wrapper {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .home-icon {
-        color: white;
-        font-size: 1.5rem;
-        transition: 0.3s;
-        text-shadow: var(--neon-shadow);
-    }
-
-    .home-icon:hover {
-        color: var(--primary-purple);
-        transform: scale(1.1);
-    }
-
-    .nav-dropdown {
-        position: relative;
-    }
-
-    .drop-btn {
-        background: var(--glass);
-        color: white;
-        border: 1px solid var(--primary-purple);
-        padding: 8px 20px;
-        font-family: 'Orbitron', sans-serif;
-        font-size: 0.8rem;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: 0.3s;
-        box-shadow: var(--neon-shadow);
-    }
-
-    .drop-btn:hover {
-        background: var(--primary-purple);
-        color: black;
-    }
-
-    .dropdown-items {
-        display: none;
-        position: absolute;
-        right: 0;
-        top: 110%;
-        background: #0a0510;
-        min-width: 180px;
-        border: 1px solid var(--primary-purple);
-        border-radius: 8px;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.5);
-        overflow: hidden;
-    }
-
-    .dropdown-items a {
-        color: white;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        font-family: 'Rajdhani', sans-serif;
-        font-weight: 600;
-        border-bottom: 1px solid rgba(179, 102, 255, 0.1);
-        transition: 0.3s;
-    }
-
-    .dropdown-items a:hover {
-        background: var(--glass);
-        color: var(--primary-purple);
-        padding-left: 25px;
-    }
-
-    /* Tampilkan Dropdown */
-    .show {
-        display: block !important;
-        animation: slideDown 0.3s ease-out;
-    }
-
-    @keyframes slideDown {
-        from { opacity: 0; transform: translateY(-10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Responsif Smartphone */
-    @media (max-width: 600px) {
-        .main-nav { padding: 8px 15px; }
-        .drop-btn { padding: 6px 15px; font-size: 0.7rem; }
-    }
-</style>
-
-<script>
-    /* Fungsi Toggle Dropdown */
-    function toggleMenu() {
-        document.getElementById("dropdownContent").classList.toggle("show");
-    }
-
-    /* Tutup dropdown jika user klik di luar menu */
-    window.onclick = function(event) {
-        if (!event.target.matches('.drop-btn')) {
-            var dropdowns = document.getElementsByClassName("dropdown-items");
-            for (var i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-</script>
- <section class="hero-section">
-        <header class="brand-container">
-          <a href="index.html">
-            <div class="logo-box">
-              
-<img src="Logo.png" alt="CMD Logo">
-                </a>
-            </div>
-            <h3 id="typing-text" style="min-height: 1.5em; font-size: 1.2rem; color: white;"></h3>
-            <h3 class="main-title"><b>Command Computer Service</b></h3>
-            <p style="color: var(--primary-purple); letter-spacing: 3px; margin-top: 5px;">Solusi Mudah Terpecahkan
-            </p>
-            <br>
-            
-        
-        
-        <canvas id="canvas"></canvas>
-<div style="text-align: center;">
     <div class="container">
-        <h1>Software Download</h1>
-        <h3>Silahkan pilih software</h3>
-        <div class="adnotif">
-        <h4>Link download akan terbuka setelah skip iklan</h4>
+        <div class="hero-title">
+            <h1>DOWNLOAD CENTER</h1>
+            <p>Pusat Unduhan Software Resmi & Dokumentasi Layanan</p>
         </div>
-<br>
 
-        <div class="btn-container">
-
-            
-            <a href="https://www.mediafire.com/file/0q38fk2al5rxdg2/HEU+KMS+Activator+v63.3.kuyhAa.7z/file" class="hacker-btn">Activator Windows</a>
-           
-            <a href="https://pixeldrain.com/u/XD7kqdNu" class="hacker-btn">Ms.Office</a>
-            
- <a href="https://www.mediafire.com/file/syzwkhx5ip98y3n/Wub_v1.8.kuyhAa.7z/file" class="hacker-btn">Update Blocker</a>
-            
-            
+        <div class="gallery-access">
+            <a href="foto.html" class="btn-gallery"><i class="fas fa-camera"></i> LIHAT FOTO</a>
+            <a href="video.html" class="btn-gallery"><i class="fas fa-video"></i> LIHAT VIDEO</a>
         </div>
+
+        <div class="software-grid">
+            <div class="sw-card">
+                <i class="fab fa-chrome"></i>
+                <h3>Google Chrome</h3>
+                <p>Browser tercepat dan paling aman untuk kebutuhan navigasi internet dan pengerjaan tugas online.</p>
+                <a href="https://www.google.com/chrome/" target="_blank" class="btn-dl">OFFICIAL SITE</a>
+            </div>
+
+            <div class="sw-card">
+                <i class="fas fa-file-word"></i>
+                <h3>LibreOffice</h3>
+                <p>Alternatif gratis pengganti Microsoft Office untuk mengolah dokumen, tabel, dan presentasi tanpa lisensi mahal.</p>
+                <a href="https://www.libreoffice.org/download/" target="_blank" class="btn-dl">OFFICIAL SITE</a>
+            </div>
+
+            <div class="sw-card">
+                <i class="fas fa-file-archive"></i>
+                <h3>7-Zip (64-bit)</h3>
+                <p>Utility pengarsipan file dengan rasio kompresi tinggi. Ringan dan mendukung berbagai format (.zip, .rar, .7z).</p>
+                <a href="https://www.7-zip.org/" target="_blank" class="btn-dl">OFFICIAL SITE</a>
+            </div>
+
+            <div class="sw-card">
+                <i class="fas fa-tools"></i>
+                <h3>Driver Pack Online</h3>
+                <p>Solusi otomatis untuk instalasi driver hardware laptop/PC agar semua komponen berfungsi normal.</p>
+                <a href="https://drp.su/en" target="_blank" class="btn-dl">OFFICIAL SITE</a>
+            </div>
+        </div>
+
+        <p style="text-align: center; margin-top: 50px; opacity: 0.6; font-size: 0.9rem;">
+            *Kami hanya menyediakan link ke situs resmi untuk menjamin keamanan perangkat Anda dari malware.
+        </p>
     </div>
-</header>
+
+    <footer class="footer">
+        &copy; 2026 Command Computer Service | Purwakarta
+    </footer>
+
     <script>
-        const canvas = document.getElementById('canvas');
-        const ctx = canvas.getContext('2d');
-
-        canvas.height = window.innerHeight;
-        canvas.width = window.innerWidth;
-
-        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789$+-*/=%"\'#&_(),.;:?!\\|{}<>[]^~';
-        const fontSize = 16;
-        const columns = canvas.width / fontSize;
-
-        const drops = [];
-        for (let x = 0; x < columns; x++) {
-            drops[x] = 1;
+        function toggleMenu() {
+            document.getElementById("dropdownContent").classList.toggle("show");
         }
-
-        function draw() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.fillStyle = '#bc13fe'; 
-            ctx.font = fontSize + 'px arial';
-
-            for (let i = 0; i < drops.length; i++) {
-                const text = characters.charAt(Math.floor(Math.random() * characters.length));
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
+        window.onclick = function(event) {
+            if (!event.target.matches('.drop-btn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-items");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
                 }
-                drops[i]++;
             }
         }
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-
-        setInterval(draw, 33);
     </script>
-    </div>
-    
-  <div style="text-align: center;">
-                <a href="index.html" class="back-btn">Kembali ke Beranda</a>
-          </div>    
-   <footer class="credit"> &copy; Command Computer Service | By . Reza Malik Al Hakim
-        <br>
-         
-        </footer>
-    </section>
 </body>
 </html>
