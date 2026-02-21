@@ -294,6 +294,19 @@
         }
     }
 
+      .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: var(--glass-strong);
+            border: 1px solid var(--primary-purple);
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
     </style>
 </head>
 <body>
@@ -310,10 +323,14 @@
             </button>
             <div id="dropdownContent" class="dropdown-items">
                 <a href="about.html">TENTANG</a>
-                <a href="solusi.html">SOLUSI IT</a>
-                <a href="download.html">SOFTWARE</a>
-                <a href="kontak.html">KONTAK</a>
-                <a href="kebijakan.html">PRIVASI</a>
+                    <a href="kontak.html">KONTAK</a>
+                    <a href="galeri.html">GALERI</a>
+                    <a href="solusi.html">SOLUSI</a>
+                    <a href="download.html">SOFTWARE</a>
+                    <a href="kebijakan.html">KEBIJAKAN</a>
+                    <a href="privacy.html">PRIVASI</a>
+                    <a href="disclaimer.html">DISCLAIMER</a>
+                    <a href="term.html">Term & Conditions</a>
             </div>
         </div>
     </div>
@@ -461,6 +478,15 @@
             font-size: 1rem;
         }
     }
+    /* Footer */
+        .credit {
+            margin-top: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            opacity: 0.6;
+            text-align: center;
+        }
 
 </style>
 
@@ -585,7 +611,6 @@
 
         </div>
 
-        <a href="index.html" class="back-home">KEMBALI KE BERANDA</a>
     </section>
 
     <div id="modal-container" class="modal">
@@ -1020,9 +1045,9 @@ Lihat setelah di rubah menjadi "Maximum Performance" , maka sinyal WIFI Laptop a
                 closeModal();
             }
         }
-    </script>
+   
 
-<script>
+
     // Ambil tombolnya
     const mybutton = document.getElementById("scrollTopBtn");
 
@@ -1042,36 +1067,20 @@ Lihat setelah di rubah menjadi "Maximum Performance" , maka sinyal WIFI Laptop a
             behavior: 'smooth'
         });
     }
+
+
 </script>
-
-<script>
-    // Ambil tombolnya
-    const mybutton = document.getElementById("scrollTopBtn");
-
-    // Munculkan tombol saat scroll turun 300px
-    window.onscroll = function() {
-        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-            mybutton.style.display = "block";
-        } else {
-            mybutton.style.display = "none";
-        }
-    };
-
-    // Fungsi klik untuk kembali ke atas dengan halus
-    function scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
-    src="floating-chat.js">
-</script>
-
-
-
-
-
-
-
+<div style="text-align: center;">
+<div class="centered-container">
+                <a href="index.html" class="back-btn">Kembali ke Beranda</a>
+            </div>
+            </div>
 </body>
+
+<div style="text-align: center;">
+     <footer class="credit">
+          &copy; Command Computer Service | By . Reza Malik Al Hakim
+                    
+        </footer>
+</div>
 </html>
