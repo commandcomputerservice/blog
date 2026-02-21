@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<button id="scrollTopBtn" onclick="scrollToTop()" title="Kembali ke Atas">
+    <i class="fas fa-arrow-up"></i>
+</button>
 <style>
         :root {
             --primary-purple: #b366ff;
@@ -226,11 +229,8 @@
     @media (max-width: 600px) {
         .navbar a { font-size: 0.7rem; padding: 6px 10px; }
 
-<button id="scrollTopBtn" onclick="scrollToTop()" title="Kembali ke Atas">
-    <i class="fas fa-arrow-up"></i>
-</button>
 
-<style>
+
     #scrollTopBtn {
         display: none; /* Tersembunyi saat di atas */
         position: fixed;
@@ -267,15 +267,56 @@
             height: 40px;
             font-size: 1rem;
         }
+
+#scrollTopBtn {
+        display: none; /* Tersembunyi saat di atas */
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        z-index: 99;
+        border: 2px solid var(--primary-purple);
+        outline: none;
+        background-color: rgba(10, 5, 16, 0.8);
+        color: var(--primary-purple);
+        cursor: pointer;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+        box-shadow: var(--neon-shadow);
+        backdrop-filter: blur(5px);
     }
-</style>
+
+    #scrollTopBtn:hover {
+        background-color: var(--primary-purple);
+        color: black;
+        transform: translateY(-5px);
+        box-shadow: 0 0 25px var(--primary-purple);
+    }
+
+    /* Penyesuaian untuk Mobile agar tidak menghalangi chat */
+    @media (max-width: 600px) {
+        #scrollTopBtn {
+            bottom: 80px; /* Di atas tombol floating chat jika ada */
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+    }
 
     }
+
+
+    
 </style>
 
 
 </head>
 <body>
+
+   
 
 <nav class="main-nav">
     <div class="nav-wrapper">
@@ -289,14 +330,22 @@
             </button>
             <div id="dropdownContent" class="dropdown-items">
                 <a href="about.html">TENTANG</a>
-                <a href="solusi.html">SOLUSI IT</a>
-                <a href="download.html">SOFTWARE</a>
-                <a href="kontak.html">KONTAK</a>
-                <a href="kebijakan.html">PRIVASI</a>
+                    <a href="kontak.html">KONTAK</a>
+                    <a href="galeri.html">GALERI</a>
+                    <a href="solusi.html">SOLUSI</a>
+                    <a href="download.html">SOFTWARE</a>
+                    <a href="kebijakan.html">KEBIJAKAN</a>
+                    <a href="privacy.html">PRIVASI</a>
+                    <a href="privacy.html">PRIVASI</a>
+                    <a href="term.html">Term & Conditions</a>
             </div>
         </div>
     </div>
 </nav>
+
+<button id="scrollTopBtn" onclick="scrollToTop()" title="Kembali ke Atas">
+    <i class="fas fa-arrow-up"></i>
+</button>
 
 <style>
     /* CSS Navigasi Dropdown */
@@ -398,6 +447,45 @@
         .main-nav { padding: 8px 15px; }
         .drop-btn { padding: 6px 15px; font-size: 0.7rem; }
     }
+
+#scrollTopBtn {
+        display: none; /* Tersembunyi saat di atas */
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        z-index: 99;
+        border: 2px solid var(--primary-purple);
+        outline: none;
+        background-color: rgba(10, 5, 16, 0.8);
+        color: var(--primary-purple);
+        cursor: pointer;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+        box-shadow: var(--neon-shadow);
+        backdrop-filter: blur(5px);
+    }
+
+    #scrollTopBtn:hover {
+        background-color: var(--primary-purple);
+        color: black;
+        transform: translateY(-5px);
+        box-shadow: 0 0 25px var(--primary-purple);
+    }
+
+    /* Penyesuaian untuk Mobile agar tidak menghalangi chat */
+    @media (max-width: 600px) {
+        #scrollTopBtn {
+            bottom: 80px; /* Di atas tombol floating chat jika ada */
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+    }
+
 </style>
 
 <script>
@@ -480,6 +568,7 @@
         </footer>
 
     </section>
+
 <script>
     // Ambil tombolnya
     const mybutton = document.getElementById("scrollTopBtn");
@@ -503,7 +592,6 @@
 </script>
 
 
-<script src="floating-chat.js"></script>
 
 </body>
 </html>
