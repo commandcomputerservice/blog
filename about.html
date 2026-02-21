@@ -225,6 +225,51 @@
     /* Responsif untuk HP */
     @media (max-width: 600px) {
         .navbar a { font-size: 0.7rem; padding: 6px 10px; }
+
+<button id="scrollTopBtn" onclick="scrollToTop()" title="Kembali ke Atas">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<style>
+    #scrollTopBtn {
+        display: none; /* Tersembunyi saat di atas */
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        z-index: 99;
+        border: 2px solid var(--primary-purple);
+        outline: none;
+        background-color: rgba(10, 5, 16, 0.8);
+        color: var(--primary-purple);
+        cursor: pointer;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+        box-shadow: var(--neon-shadow);
+        backdrop-filter: blur(5px);
+    }
+
+    #scrollTopBtn:hover {
+        background-color: var(--primary-purple);
+        color: black;
+        transform: translateY(-5px);
+        box-shadow: 0 0 25px var(--primary-purple);
+    }
+
+    /* Penyesuaian untuk Mobile agar tidak menghalangi chat */
+    @media (max-width: 600px) {
+        #scrollTopBtn {
+            bottom: 80px; /* Di atas tombol floating chat jika ada */
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+    }
+</style>
+
     }
 </style>
 
@@ -435,6 +480,29 @@
         </footer>
 
     </section>
+<script>
+    // Ambil tombolnya
+    const mybutton = document.getElementById("scrollTopBtn");
+
+    // Munculkan tombol saat scroll turun 300px
+    window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    };
+
+    // Fungsi klik untuk kembali ke atas dengan halus
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+</script>
+
+
 <script src="floating-chat.js"></script>
 
 </body>
