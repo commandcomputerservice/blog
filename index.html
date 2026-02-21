@@ -125,6 +125,17 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
         @media (max-width: 600px) { .nav-grid { grid-template-columns: 1fr; } }
+
+          /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid var(--glass-strong);
+            margin-top: 50px;
+            font-size: 0.9rem;
+        }
+        .legal-links { margin-top: 10px; }
+        .legal-links a { color: var(--primary-purple); text-decoration: none; margin: 0 10px; font-size: 0.8rem; }
     </style>
 
 </head>
@@ -145,12 +156,16 @@
             
         </header>
 
+
+        
         <nav class="nav-grid">
             <a href="about.html" class="nav-item">TENTANG KAMI</a>
             <a href="solusi.html" class="nav-item">SOLUSI KAMI</a>
             <a href="kontak.html" class="nav-item">KONTAK</a>
             <a href="galeri.html" target="_blank" class="nav-item">GALERI</a>
             <a href="kebijakan.html" class="nav-item" style="grid-column: span 2;">KEBIJAKAN & PRIVASI</a>
+            <a href="term.html" class="nav-item" style="grid-column: span 2;">TERM & CONDITIONS</a>
+            <a href="disclaimer.html" class="nav-item" style="grid-column: span 2;">DISCLAIMER</a>
     <a href="download.html" class="nav-item" style="grid-column: span 2;">SOFTWARE DOWNLOADS</a>
             <div class="nav-item dropdown" style="grid-column: span 2;">
                 LAYANAN
