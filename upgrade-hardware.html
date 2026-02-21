@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layanan - Command Computer Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #b366ff;
+            --dark-bg: #0a0510;
+            --glass: rgba(179, 102, 255, 0.15);
+            --neon-shadow: 0 0 15px rgba(179, 102, 255, 0.5);
+        }
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--dark-bg);
+            color: white;
+            line-height: 1.8;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .hero-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(10, 5, 16, 0.9), rgba(10, 5, 16, 0.9)), url('Banner.jpg');
+            background-size: cover;
+            z-index: -1;
+        }
+        .container { max-width: 800px; margin: 50px auto; padding: 20px; }
+        .service-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(179, 102, 255, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--neon-shadow);
+        }
+        h1 { font-family: 'Orbitron', sans-serif; color: var(--primary-purple); text-align: center; font-size: 2rem; }
+        .service-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 1px solid var(--primary-purple);
+        }
+        .content { font-size: 1.1rem; text-align: justify; color: #e0e0e0; }
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 25px;
+            border: 2px solid var(--primary-purple);
+            color: var(--primary-purple);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            transition: 0.3s;
+            border-radius: 5px;
+        }
+        .back-btn:hover { background: var(--primary-purple); color: black; box-shadow: var(--neon-shadow); }
+    </style>
+</head>
+<body>
+    <div class="hero-bg"></div>
+    <div class="container">
+        <div class="service-card">
+            <h1>Upgrade RAM, SSD, & LAN</h1>
+            <img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=800&q=80" alt="Service Image" class="service-img">
+            <div class="content">
+             <p>Percepat loading laptop Anda hingga 10x lipat dengan upgrade SSD dan RAM. Kami juga melayani perbaikan dan optimasi jaringan LAN untuk kantor atau rumah</p>
+            </div>
+            <a href="index.html" class="back-btn"> KEMBALI</a>
+        </div>
+    </div>
+</body>
+</html>

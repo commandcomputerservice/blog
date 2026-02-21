@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Development - Command Computer Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary-purple: #b366ff; --dark-bg: #0a0510; --glass: rgba(179, 102, 255, 0.15); --neon-shadow: 0 0 15px rgba(179, 102, 255, 0.5); }
+        body { font-family: 'Rajdhani', sans-serif; background-color: var(--dark-bg); color: white; line-height: 1.6; margin: 0; }
+        .hero-section { min-height: 100vh; padding: 40px 20px; background: radial-gradient(circle at center, #1a0b2e 0%, #0a0510 100%); display: flex; flex-direction: column; align-items: center; }
+        .container { max-width: 800px; width: 100%; background: var(--glass); border: 1px solid var(--primary-purple); padding: 30px; border-radius: 15px; backdrop-filter: blur(10px); box-shadow: var(--neon-shadow); }
+        .service-title { font-family: 'Orbitron', sans-serif; color: var(--primary-purple); text-align: center; margin-bottom: 20px; text-transform: uppercase; }
+        .service-img { width: 100%; height: 300px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; border: 1px solid var(--primary-purple); }
+        .btn-group { display: flex; gap: 15px; justify-content: center; margin-top: 20px; }
+        .btn { text-decoration: none; padding: 12px 25px; border-radius: 5px; font-family: 'Orbitron', sans-serif; font-size: 0.8rem; transition: 0.3s; }
+        .btn-primary { background: var(--primary-purple); color: black; font-weight: bold; }
+        .btn-outline { border: 1px solid var(--primary-purple); color: white; }
+    </style>
+</head>
+<body>
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="service-title">Website Development</h1>
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800" class="service-img">
+            <p>Membangun identitas digital bisnis Anda dengan website yang responsif, modern, dan SEO-friendly. Kami menangani Landing Page, Company Profile, hingga E-Commerce.</p>
+            <ul>
+                <li><a href="promo-web-company.html">Pembuatan Website Company Profile</a></li>
+                <li>Pembuatan Website Pemesanan Menu Resto</li>
+                <li>Dan Customize Website Modern Lainnya</li>
+            </ul>
+            <div class="btn-group">
+                <a href="index.html" class="btn btn-outline">KEMBALI</a>
+                <a href="https://wa.me/6282122321195?text=Halo, saya tertarik dengan jasa Web Dev" class="btn btn-primary">ORDER VIA WA</a>
+            </div>
+        </div>
+    </section>
+    <script src="floating-chat.js"></script>
+</body>
+</html>
