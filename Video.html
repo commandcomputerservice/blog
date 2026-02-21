@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Video - Command Computer Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #b366ff;
+            --dark-bg: #0a0510;
+            --glass: rgba(179, 102, 255, 0.15);
+            --neon-shadow: 0 0 15px rgba(179, 102, 255, 0.5);
+        }
+        body { font-family: 'Rajdhani', sans-serif; background: var(--dark-bg); color: white; margin: 0; }
+        
+        .main-nav { background: rgba(10,5,16,0.95); border-bottom: 2px solid var(--primary-purple); padding: 10px 20px; position: sticky; top:0; z-index:100; }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+        .home-icon { color: white; font-size: 1.5rem; text-shadow: var(--neon-shadow); }
+        
+        .container { max-width: 1200px; margin: 50px auto; padding: 20px; }
+        h1 { font-family: 'Orbitron'; color: var(--primary-purple); text-align: center; margin-bottom: 40px; }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .video-card {
+            background: var(--glass);
+            border: 1px solid rgba(179,102,255,0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .video-card:hover {
+            box-shadow: var(--neon-shadow);
+            transform: scale(1.02);
+        }
+
+        .video-placeholder {
+            width: 100%; height: 180px;
+            background: #1a1a1a;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 3rem; color: var(--primary-purple);
+            border-bottom: 1px solid var(--primary-purple);
+        }
+
+        .video-info { padding: 15px; }
+        .video-info h3 { font-family: 'Orbitron'; font-size: 0.9rem; color: var(--primary-purple); }
+        
+       
+
+            /* Footer */
+        .credit {
+            margin-top: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            opacity: 0.6;
+            text-align: center;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: var(--glass-strong);
+            border: 1px solid var(--primary-purple);
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="main-nav">
+        <div class="nav-wrapper">
+            <a href="index.html" class="home-icon"><i class="fas fa-home"></i></a>
+            <a href="index.html" style="color:white; text-decoration:none; font-family:'Orbitron'; font-size:0.8rem; border:1px solid var(--primary-purple); padding:5px 15px; border-radius:5px;">BACK</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>DOKUMENTASI VIDEO</h1>
+        <div class="video-grid">
+            <div class="video-card">
+                <div class="video-placeholder"><i class="fas fa-play-circle"></i></div>
+                <div class="video-info">
+                    <h3>PROSES CLEANING LAPTOP</h3>
+                    <p>Langkah-langkah pembersihan fan dan repaste thermal agar suhu tetap dingin.</p>
+                </div>
+            </div>
+            </div>
+    </div>
+
+  <div style="text-align: center;">
+                <a href="index.html" class="back-btn">Kembali ke Beranda</a>
+ </div>  
+  <div style="text-align: center;">
+    <footer class="credit">
+        &copy; Command Computer Service | By . Reza Malik Al Hakim
+    </footer>
+</div>
+
+</body>
+</html>

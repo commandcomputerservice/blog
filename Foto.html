@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Foto - Command Computer Service</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-purple: #b366ff;
+            --dark-bg: #0a0510;
+            --glass: rgba(179, 102, 255, 0.15);
+            --glass-strong: rgba(179, 102, 255, 0.3);
+            --neon-shadow: 0 0 15px rgba(179, 102, 255, 0.5);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--dark-bg);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Navigasi Dropdown (Sesuai Permintaan Sebelumnya) */
+        .main-nav {
+            background: rgba(10, 5, 16, 0.95);
+            border-bottom: 2px solid var(--primary-purple);
+            position: sticky; top: 0; z-index: 9999;
+            padding: 10px 20px; backdrop-filter: blur(10px);
+        }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+        .home-icon { color: white; font-size: 1.5rem; text-shadow: var(--neon-shadow); text-decoration: none; }
+        .drop-btn {
+            background: var(--glass); color: white; border: 1px solid var(--primary-purple);
+            padding: 8px 20px; font-family: 'Orbitron', sans-serif; cursor: pointer; border-radius: 5px; box-shadow: var(--neon-shadow);
+        }
+        .dropdown-items {
+            display: none; position: absolute; right: 0; top: 110%;
+            background: #0a0510; min-width: 180px; border: 1px solid var(--primary-purple); border-radius: 8px;
+        }
+        .dropdown-items a { color: white; padding: 12px 16px; text-decoration: none; display: block; border-bottom: 1px solid rgba(179, 102, 255, 0.1); }
+        .show { display: block !important; }
+
+        /* Gallery Grid Section */
+        .gallery-container {
+            max-width: 1200px; margin: 50px auto; padding: 20px;
+        }
+        h1 {
+            font-family: 'Orbitron', sans-serif; color: var(--primary-purple);
+            text-align: center; margin-bottom: 40px; letter-spacing: 3px;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-strong);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--neon-shadow);
+            border-color: var(--primary-purple);
+        }
+
+        .gallery-card img {
+            width: 100%; height: 200px; object-fit: cover;
+            border-bottom: 1px solid var(--glass-strong);
+        }
+
+        .card-info { padding: 15px; text-align: center; }
+        .card-info h3 { font-family: 'Orbitron', sans-serif; font-size: 0.9rem; color: var(--primary-purple); margin-bottom: 5px; }
+        .card-info p { font-size: 0.85rem; opacity: 0.8; }
+
+       
+            /* Footer */
+        .credit {
+            margin-top: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            opacity: 0.6;
+            text-align: center;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: var(--glass-strong);
+            border: 1px solid var(--primary-purple);
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="main-nav">
+        <div class="nav-wrapper">
+            <a href="index.html" class="home-icon"><i class="fas fa-home"></i></a>
+            <div style="position: relative;">
+                <button class="drop-btn" onclick="toggleMenu()">MENU <i class="fas fa-chevron-down"></i></button>
+                <div id="dropdownContent" class="dropdown-items">
+                    <a href="about.html">TENTANG</a>
+                    <a href="solusi.html">SOLUSI IT</a>
+                    <a href="download.html">SOFTWARE</a>
+                    <a href="kontak.html">KONTAK</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="gallery-container">
+        <h1>DOKUMENTASI FOTO</h1>
+        
+        <div class="photo-grid">
+            <div class="gallery-card">
+                <img src="https://via.placeholder.com/400x300/1a1a1a/b366ff?text=Servis+Laptop" alt="Servis Laptop">
+                <div class="card-info">
+                    <h3>PERBAIKAN MOTHERBOARD</h3>
+                    <p>Penanganan laptop mati total akibat korsleting arus pendek.</p>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <img src="https://via.placeholder.com/400x300/1a1a1a/b366ff?text=Upgrade+PC" alt="Upgrade PC">
+                <div class="card-info">
+                    <h3>UPGRADE SSD & RAM</h3>
+                    <p>Peningkatan performa PC kantor untuk multitasking cepat.</p>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <img src="https://via.placeholder.com/400x300/1a1a1a/b366ff?text=CCTV+Install" alt="Instalasi CCTV">
+                <div class="card-info">
+                    <h3>INSTALASI CCTV IP CAM</h3>
+                    <p>Pemasangan sistem keamanan berbasis cloud di area toko.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+    <script>
+        function toggleMenu() { document.getElementById("dropdownContent").classList.toggle("show"); }
+    </script>
+
+      
+<div style="text-align: center;">
+                <a href="index.html" class="back-btn">Kembali ke Beranda</a>
+ </div>  
+  <div style="text-align: center;">
+    <footer class="credit">
+        &copy; Command Computer Service | By . Reza Malik Al Hakim
+    </footer>
+</div>
+</body>
+</html>
