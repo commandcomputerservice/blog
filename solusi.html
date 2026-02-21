@@ -939,6 +939,29 @@ Lihat setelah di rubah menjadi "Maximum Performance" , maka sinyal WIFI Laptop a
             }
         }
     </script>
+
+<script>
+    // Ambil tombolnya
+    const mybutton = document.getElementById("scrollTopBtn");
+
+    // Munculkan tombol saat scroll turun 300px
+    window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    };
+
+    // Fungsi klik untuk kembali ke atas dengan halus
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+</script>
+
 <script src="floating-chat.js"></script>
 
 
