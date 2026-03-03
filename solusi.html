@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Layanan instalasi software, sistem operasi, WiFi, dan CCTV profesional dari Command Computer Service.">
+    <title>Solusi Instalasi | Command Computer Service</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-purple: #b366ff;
+            --dark-bg: #0a0510;
+            --glass: rgba(179, 102, 255, 0.15);
+            --glass-strong: rgba(179, 102, 255, 0.3);
+            --neon-shadow: 0 0 15px rgba(179, 102, 255, 0.5);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--dark-bg);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(rgba(10, 5, 16, 0.85), rgba(10, 5, 16, 0.85)), 
+                        url('Banner.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 40px 20px;
+        }
+
+        .brand-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .main-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.2rem, 5vw, 2.5rem);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px var(--primary-purple);
+        }
+
+        .sub-title {
+            color: var(--primary-purple);
+            letter-spacing: 3px;
+            margin-top: 5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        /* Navigasi Perbaikan agar Rapi & Berfungsi */
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            width: 100%;
+            max-width: 600px;
+            z-index: 100;
+            margin-bottom: 40px;
+        }
+
+        .nav-item {
+            background: var(--glass);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            padding: 15px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+        }
+
+        .nav-item:hover {
+            background: var(--glass-strong);
+            border-color: var(--primary-purple);
+            transform: translateY(-3px);
+            box-shadow: var(--neon-shadow);
+        }
+
+        /* Dropdown Styling */
+        .dropdown { position: relative; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%; 
+            left: 0; 
+            width: 100%;
+            background: rgba(15, 5, 25, 0.98);
+            border: 1px solid var(--primary-purple);
+            border-top: none;
+            border-radius: 0 0 12px 12px;
+            z-index: 200;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .dropdown-content a {
+            color: #ccc; 
+            padding: 12px; 
+            display: block;
+            text-decoration: none; 
+            font-size: 0.85rem;
+            font-family: 'Rajdhani', sans-serif;
+            text-align: left; 
+            border-bottom: 1px solid rgba(179, 102, 255, 0.1);
+        }
+
+        .dropdown-content a:hover { 
+            background: var(--primary-purple); 
+            color: black; 
+        }
+
+        /* Munculkan Dropdown saat class 'show' aktif via JS */
+        .show { display: block !important; }
+
+        .content-container {
+            width: 100%;
+            max-width: 1000px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            z-index: 10;
+        }
+
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+
+        .card:hover {
+            border-color: var(--primary-purple);
+            box-shadow: var(--neon-shadow);
+            transform: translateY(-5px);
+            background: var(--glass-strong);
+        }
+
+        .card h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary-purple);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card ul { list-style: none; }
+        .card ul li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .card ul li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary-purple);
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            opacity: 0.6;
+            padding-bottom: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .nav-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero-section">
+        <header class="brand-container">
+            <h3 class="main-title">Command Computer Service</h3>
+            <p class="sub-title">Solusi Mudah Terpecahkan</p>
+            <h1 style="font-family: 'Orbitron'; margin-top: 20px; font-size: 1.6rem; color: white;">SOLUSI INSTALASI</h1>
+        </header>
+
+        <nav class="nav-grid">
+            <a href="index.html" class="nav-item">
+                <i class="fas fa-home" style="margin-right: 10px;"></i> BERANDA
+            </a>
+            
+            <div class="nav-item dropdown" onclick="toggleDropdown()">
+                MENU<i class="fas fa-chevron-down" style="margin-left: 10px; font-size: 0.8rem;"></i>
+                <div id="myDropdown" class="dropdown-content">
+                  
+                    <a href="about.html">TENTANG</a>
+                    <a href="kontak.html">KONTAK</a>
+                    <a href="galeri.html">GALERI</a>
+                    <a href="solusi.html">SOLUSI</a>
+                    <a href="download.html">SOFTWARE</a>
+                    <a href="kebijakan.html">KEBIJAKAN</a>
+                    <a href="privacy.html">PRIVASI</a>
+                    <a href="disclaimer.html">DISCLAIMER</a>
+                    <a href="term.html">Term & Conditions</a>
+                    
+                </div>
+            </div>
+        </nav>
+
+        <div class="content-container">
+            <a href="instal-ulang.html" class="card">
+                <h2><i class="fas fa-fan"></i>Cara Aman Membersihkan Komponen Internal Laptop Agar Tetap Dingin</h2>
+                <img src="p1.jpg" alt="cleaning-debu" width="100%">
+                <br>
+                <ul>
+                    <li>Protokol Keamanan</li>
+                    <li>Membuka Casing dan Manajemen Sekrup</li>
+                    <li>Membersihkan Kipas (Fan) dan Heatsink</li>
+                    <li>Mengganti Pasta Termal (Thermal Paste)</li>
+                    <li>Pembersihan Motherboard dan Port</li>
+                </ul>
+            </a>
+
+            <a href="index.html" class="card">
+                <h2><i class="fas fa-network-wired"></i> Jaringan & CCTV</h2>
+                <ul>
+                    <li>Instalasi Modem & Router WiFi</li>
+                    <li>Setting Mikrotik & Bandwidth</li>
+                    <li>Pemasangan CCTV IP Camera</li>
+                    <li>Perbaikan Kabel LAN</li>
+                </ul>
+            </a>
+
+            <a href="troubleshooting-pc-laptop.html" class="card">
+                <h2><i class="fas fa-tools"></i> Optimasi & Driver</h2>
+                <ul>
+                    <li>Instalasi Driver Hardware Terbaru</li>
+                    <li>Pembersihan Virus & Malware</li>
+                    <li>Setting Printer & Scanner</li>
+                    <li>Backup & Recovery Data</li>
+                </ul>
+            </a>
+        </div>
+
+        <footer>
+            &copy;Command Computer Service | By . Reza Malik Al Hakim
+        </footer>
+    </section>
+
+    <script>
+        function toggleDropdown() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Menutup dropdown jika pengguna mengklik di luar area menu
+        window.onclick = function(event) {
+            if (!event.target.closest('.dropdown')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+    
+</body>
+</html>
